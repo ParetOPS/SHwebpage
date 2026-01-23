@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScanHorizon - Site Officiel</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+        }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-dark);
+            max-width: 900px; 
+            margin: auto; 
+            padding: 2rem;
+            background-color: #f9fafb;
+        }
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 2px solid #e5e7eb; 
+            padding-bottom: 1rem; 
+            margin-bottom: 3rem; 
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        .lang-switch button { 
+            background: none; border: 1px solid #ccc; cursor: pointer; padding: 5px 10px; border-radius: 4px;
+        }
+        .lang-switch button:hover { background: #eee; }
+        
+        section { margin-bottom: 3rem; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero { text-align: center; padding: 4rem 0; }
+        
+        /* Gestion des langues */
+        [lang="en"] { display: none; } /* Par défaut, on cache l'anglais */
+
+        .footer { 
+            margin-top: 5rem; 
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.9rem; 
+            color: var(--text-light); 
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">ScanHorizon</div>
+        <div class="lang-switch">
+            <button onclick="setLanguage('fr')">FR</button>
+            <button onclick="setLanguage('en')">EN</button>
+        </div>
+    </nav>
+
+    <div id="fr-content" lang="fr">
+        <section class="hero">
+            <h1>Bienvenue sur ScanHorizon</h1>
+            <p>Votre nouvelle perspective sur le scan mobile. Notre application arrive bientôt sur le Play Store.</p>
+        </section>
+
+        <section id="privacy-fr">
+            <h2>Politique de Confidentialité</h2>
+            <p>Chez <strong>ScanHorizon</strong>, nous respectons votre vie privée. Cette application ne collecte, ne stocke, ni ne transmet aucune donnée personnelle à des tiers.</p>
+            <ul>
+                <li>Aucun compte requis.</li>
+                <li>Aucun suivi publicitaire.</li>
+                <li>Les scans restent localement sur votre appareil.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div id="en-content" lang="en">
+        <section class="hero">
+            <h1>Welcome to ScanHorizon</h1>
+            <p>Your new perspective on mobile scanning. Our app is coming soon to the Play Store.</p>
+        </section>
+
+        <section id="privacy-en">
+            <h2>Privacy Policy</h2>
+            <p>At <strong>ScanHorizon</strong>, we value your privacy. This application does not collect, store, or transmit any personal data to third parties.</p>
+            <ul>
+                <li>No account required.</li>
+                <li>No advertising trackers.</li>
+                <li>Scans remain locally on your device.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 ScanHorizon - <span lang="fr">Tous droits réservés</span><span lang="en">All rights reserved</span></p>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            const frElements = document.querySelectorAll('[lang="fr"]');
+            const enElements = document.querySelectorAll('[lang="en"]');
+            
+            if (lang === 'en') {
+                frElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+            } else {
+                frElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+            }
+        }
+
+        // Détection automatique de la langue du navigateur au chargement
+        const userLang = navigator.language || navigator.userLanguage; 
+        if (userLang.startsWith('en')) {
+            setLanguage('en');
+        } else {
+            setLanguage('fr');
+        }
+    </script>
+</body>
+</html>
