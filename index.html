@@ -6,46 +6,125 @@
     <title>ScanHorizon - Site Officiel</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
+            --primary-color: #4A90E2; /* Bleu tech */
+            --secondary-color: #50E3C2; /* Vert aqua */
+            --text-dark: #2C3E50; /* Gris foncé */
+            --text-light: #7F8C8D; /* Gris clair */
+            --background-gradient: linear-gradient(135deg, #F0F2F4 0%, #CCD9E6 100%); /* Flou blond premium */
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
         }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            line-height: 1.6; 
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
             color: var(--text-dark);
-            max-width: 900px; 
-            margin: auto; 
+            max-width: 960px;
+            margin: auto;
             padding: 2rem;
-            background-color: #f9fafb;
+            background: var(--background-gradient);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
+        nav {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #e5e7eb; 
-            padding-bottom: 1rem; 
-            margin-bottom: 3rem; 
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
-        .lang-switch button { 
-            background: none; border: 1px solid #ccc; cursor: pointer; padding: 5px 10px; border-radius: 4px;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
-        .lang-switch button:hover { background: #eee; }
-        
-        section { margin-bottom: 3rem; }
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero { text-align: center; padding: 4rem 0; }
-        
-        /* Gestion des langues */
-        [lang="en"] { display: none; } /* Par défaut, on cache l'anglais */
+        .lang-switch button {
+            background: #fff;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            margin-left: 0.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+        .lang-switch button.active, .lang-switch button:hover {
+            background: var(--primary-color);
+            color: #fff;
+            box-shadow: var(--shadow-light);
+        }
 
-        .footer { 
-            margin-top: 5rem; 
+        section {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            margin-bottom: 2rem;
+        }
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 2.8rem; text-align: center; }
+        h2 { font-size: 2rem; border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem;}
+        
+        .hero { 
+            text-align: center; 
+            padding: 3rem 0; 
+            background: none; /* Pas de fond blanc pour cette section */
+            box-shadow: none;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            max-width: 700px;
+            margin: 1rem auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .contact-buttons a {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            box-shadow: var(--shadow-light);
+        }
+        .contact-buttons a:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Gestion des langues - les deux sont affichées par défaut, JS gère la visibilité */
+        .lang-content { display: none; } /* On cache tout par défaut, le JS affichera la bonne langue */
+        
+        .footer {
+            margin-top: auto; /* Pousse le footer vers le bas */
             padding-top: 2rem;
-            border-top: 1px solid #e5e7eb;
-            font-size: 0.9rem; 
-            color: var(--text-light); 
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            section { padding: 1.5rem; }
+            nav { flex-direction: column; gap: 1rem; }
+            .lang-switch { margin-top: 1rem; }
         }
     </style>
 </head>
@@ -54,70 +133,93 @@
     <nav>
         <div class="logo">ScanHorizon</div>
         <div class="lang-switch">
-            <button onclick="setLanguage('fr')">FR</button>
-            <button onclick="setLanguage('en')">EN</button>
+            <button id="btn-fr" onclick="setLanguage('fr')" class="active">FR</button>
+            <button id="btn-en" onclick="setLanguage('en')">EN</button>
         </div>
     </nav>
 
-    <div id="fr-content" lang="fr">
+    <div id="fr-content" class="lang-content">
         <section class="hero">
             <h1>Bienvenue sur ScanHorizon</h1>
-            <p>Votre nouvelle perspective sur le scan mobile. Notre application arrive bientôt sur le Play Store.</p>
+            <p>Découvrez une nouvelle dimension du scan mobile. Notre application révolutionnaire arrive très bientôt sur le Google Play Store ! Préparez-vous à transformer votre façon de numériser.</p>
+            <div class="contact-buttons">
+                <a href="mailto:contact@scan-horizon.com">Nous Contacter</a>
+                <a href="mailto:support@scan-horizon.com">Support</a>
+                <a href="mailto:press@scan-horizon.com">Presse</a>
+            </div>
         </section>
 
         <section id="privacy-fr">
             <h2>Politique de Confidentialité</h2>
-            <p>Chez <strong>ScanHorizon</strong>, nous respectons votre vie privée. Cette application ne collecte, ne stocke, ni ne transmet aucune donnée personnelle à des tiers.</p>
+            <p>Chez <strong>ScanHorizon</strong>, votre vie privée est notre priorité absolue. Nous nous engageons à une transparence totale concernant l'utilisation de vos données.</p>
             <ul>
-                <li>Aucun compte requis.</li>
-                <li>Aucun suivi publicitaire.</li>
-                <li>Les scans restent localement sur votre appareil.</li>
+                <li><strong>Aucune Collecte de Données Personnelles :</strong> Notre application est conçue pour fonctionner sans collecter d'informations personnelles identifiables (PII) de ses utilisateurs.</li>
+                <li><strong>Données Localisées :</strong> Tous les documents numérisés et les données associées restent exclusivement sur votre appareil. Nous n'avons pas accès à vos scans.</li>
+                <li><strong>Pas de Suivi Tiers :</strong> Nous n'intégrons pas de traqueurs publicitaires ni de services d'analyse tiers qui pourraient compromettre votre anonymat.</li>
+                <li><strong>Absence de Comptes Utilisateur :</strong> Il n'est pas nécessaire de créer un compte pour utiliser ScanHorizon, garantissant une expérience sans friction et respectueuse de la vie privée.</li>
+                <li><strong>Sécurité des Données :</strong> Bien que vos données soient locales, nous utilisons des mesures de sécurité robustes pour protéger l'intégrité de l'application et de son environnement sur votre appareil.</li>
             </ul>
+            <p>Pour toute question concernant notre politique de confidentialité, n'hésitez pas à nous contacter.</p>
         </section>
     </div>
 
-    <div id="en-content" lang="en">
+    <div id="en-content" class="lang-content">
         <section class="hero">
             <h1>Welcome to ScanHorizon</h1>
-            <p>Your new perspective on mobile scanning. Our app is coming soon to the Play Store.</p>
+            <p>Discover a new dimension of mobile scanning. Our revolutionary app is coming very soon to the Google Play Store! Get ready to transform your scanning experience.</p>
+            <div class="contact-buttons">
+                <a href="mailto:contact@scan-horizon.com">Contact Us</a>
+                <a href="mailto:support@scan-horizon.com">Support</a>
+                <a href="mailto:press@scan-horizon.com">Press</a>
+            </div>
         </section>
 
         <section id="privacy-en">
             <h2>Privacy Policy</h2>
-            <p>At <strong>ScanHorizon</strong>, we value your privacy. This application does not collect, store, or transmit any personal data to third parties.</p>
+            <p>At <strong>ScanHorizon</strong>, your privacy is our absolute priority. We are committed to complete transparency regarding the use of your data.</p>
             <ul>
-                <li>No account required.</li>
-                <li>No advertising trackers.</li>
-                <li>Scans remain locally on your device.</li>
+                <li><strong>No Personal Data Collection:</strong> Our application is designed to function without collecting any personally identifiable information (PII) from its users.</li>
+                <li><strong>Local Data:</strong> All scanned documents and associated data remain exclusively on your device. We do not access your scans.</li>
+                <li><strong>No Third-Party Tracking:</strong> We do not integrate advertising trackers or third-party analytics services that could compromise your anonymity.</li>
+                <li><strong>No User Accounts:</strong> There is no need to create an account to use ScanHorizon, ensuring a frictionless and privacy-respecting experience.</li>
+                <li><strong>Data Security:</strong> Although your data is local, we employ robust security measures to protect the integrity of the app and its environment on your device.</li>
             </ul>
+            <p>For any questions regarding our privacy policy, please do not hesitate to contact us.</p>
         </section>
     </div>
 
     <div class="footer">
-        <p>© 2026 ScanHorizon - <span lang="fr">Tous droits réservés</span><span lang="en">All rights reserved</span></p>
+        <p>© 2026 ScanHorizon - <span class="lang-text-fr">Tous droits réservés</span><span class="lang-text-en">All rights reserved</span></p>
     </div>
 
     <script>
+        // Fonction pour changer la langue
         function setLanguage(lang) {
-            const frElements = document.querySelectorAll('[lang="fr"]');
-            const enElements = document.querySelectorAll('[lang="en"]');
-            
-            if (lang === 'en') {
-                frElements.forEach(el => el.style.display = 'none');
-                enElements.forEach(el => el.style.display = 'block');
-            } else {
-                frElements.forEach(el => el.style.display = 'block');
-                enElements.forEach(el => el.style.display = 'none');
-            }
+            document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
+            document.getElementById(`${lang}-content`).style.display = 'block';
+
+            // Gérer les classes 'active' pour les boutons
+            document.getElementById('btn-fr').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById(`btn-${lang}`).classList.add('active');
+
+            // Mettre à jour la balise <html> pour l'accessibilité
+            document.documentElement.setAttribute('lang', lang);
+
+            // Mettre à jour le texte du footer
+            document.querySelectorAll('.lang-text-fr').forEach(el => el.style.display = (lang === 'fr' ? 'inline' : 'none'));
+            document.querySelectorAll('.lang-text-en').forEach(el => el.style.display = (lang === 'en' ? 'inline' : 'none'));
         }
 
         // Détection automatique de la langue du navigateur au chargement
-        const userLang = navigator.language || navigator.userLanguage; 
-        if (userLang.startsWith('en')) {
-            setLanguage('en');
-        } else {
-            setLanguage('fr');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage;
+            if (userLang.startsWith('en')) {
+                setLanguage('en');
+            } else {
+                setLanguage('fr');
+            }
+        });
     </script>
 </body>
 </html>
