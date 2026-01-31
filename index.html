@@ -362,30 +362,21 @@
             </div>
             <div class="legal-content">
                 <div class="lang-fr">
-                    <p>Utilisez ce formulaire pour demander la suppression définitive de votre compte et de toutes les données associées. Cette action est irréversible.</p>
+                    <p>Pour garantir la sécurité de votre demande, nous utilisons un formulaire sécurisé externe. Une fois la demande envoyée, vos données seront supprimées sous 30 jours.</p>
                 </div>
                 <div class="lang-en hidden">
-                    <p>Use this form to request the permanent deletion of your account and all associated data. This action is irreversible.</p>
+                    <p>To ensure the security of your request, we use a secure external form. Once submitted, your data will be deleted within 30 days.</p>
                 </div>
 
-                <form class="cyber-form" onsubmit="handleDeleteRequest(event)">
-                    <div class="form-group">
-                        <label class="form-label">Email (Compte / Account)</label>
-                        <input type="email" id="delete-email" class="cyber-input" placeholder="user@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">
-                            <span class="lang-fr">Raison (Optionnel)</span>
-                            <span class="lang-en hidden">Reason (Optional)</span>
-                        </label>
-                        <textarea id="delete-reason" class="cyber-input" rows="3"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="cyber-btn-submit">
-                        <span class="lang-fr">CONFIRMER LA SUPPRESSION</span>
-                        <span class="lang-en hidden">CONFIRM DELETION</span>
-                    </button>
-                </form>
+                <a href="https://forms.gle/rJrmhro8WhCAsTFM9" target="_blank" class="cyber-btn-submit" style="text-decoration:none; text-align:center; display:block;">
+                    <span class="lang-fr">OUVRIR LE FORMULAIRE DE SUPPRESSION</span>
+                    <span class="lang-en hidden">OPEN DELETION FORM</span>
+                </a>
+                
+                <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-dim); text-align: center;">
+                    <span class="lang-fr">Ou contactez-nous directement : admin@scan-horizon.com</span>
+                    <span class="lang-en hidden">Or contact us directly: admin@scan-horizon.com</span>
+                </div>
             </div>
         </div>
 
