@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ScanHorizon - Identifiez, scannez et collectionnez les avions.">
-    <title>ScanHorizon | Terminal</title>
+    
+    <meta name="description" content="ScanHorizon - L'outil ultime d'identification aérienne. Accès Alpha 2026.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ScanHorizon | Terminal Alpha">
+    <meta property="og:description" content="Décodez le trafic aérien en temps réel. Rejoignez le protocole.">
+    
+    <title>ScanHorizon | Terminal Alpha</title>
+    
     <style>
         :root {
             --sky-blue: #00d2ff;
@@ -64,6 +70,7 @@
         .logo {
             font-weight: 900; font-size: 1.4rem; letter-spacing: 2px;
             color: var(--sky-blue); cursor: pointer;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
         }
 
         .lang-switch button {
@@ -95,12 +102,13 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             margin-bottom: 1.5rem;
         }
-        .hero p { color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
+        .hero p { color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; letter-spacing: 0.5px; }
         
         .btn {
             padding: 15px 30px; border: 1px solid var(--sky-blue);
             text-decoration: none; font-weight: bold; text-transform: uppercase;
             color: var(--sky-blue); transition: 0.3s; display: inline-block;
+            background: rgba(0, 210, 255, 0.05);
         }
         .btn:hover { background: var(--sky-blue); color: var(--deep-space); box-shadow: 0 0 20px rgba(0,210,255,0.4); }
 
@@ -108,10 +116,12 @@
         .card {
             background: var(--glass); border: 1px solid var(--border);
             padding: 2rem; position: relative;
+            transition: transform 0.3s ease;
         }
-        .card h2 { color: var(--radar-green); font-family: monospace; margin-bottom: 1rem; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card h2 { color: var(--radar-green); font-family: monospace; margin-bottom: 1rem; font-size: 1.2rem; }
         .card ul li { list-style: none; margin-bottom: 0.8rem; padding-left: 20px; position: relative; color: var(--text-dim); }
-        .card ul li::before { content: ">"; position: absolute; left: 0; color: var(--radar-green); }
+        .card ul li::before { content: "►"; position: absolute; left: 0; color: var(--radar-green); font-size: 0.8rem; top: 2px; }
 
         /* --- Legal Views (Docs) --- */
         .legal-container {
@@ -121,8 +131,8 @@
             max-width: 900px;
             margin: 0 auto;
             display: none; 
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
         }
-        
         .legal-container.active { display: block; animation: fadeIn 0.5s ease; }
 
         .legal-header { 
@@ -130,37 +140,25 @@
             padding-bottom: 1rem; margin-bottom: 2rem;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .legal-title { color: var(--radar-green); font-family: monospace; font-size: 1.5rem; }
-        .close-btn { color: var(--alert-red); cursor: pointer; border: 1px solid var(--alert-red); padding: 5px 15px; }
+        .legal-title { color: var(--radar-green); font-family: monospace; font-size: 1.5rem; text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
+        .close-btn { color: var(--alert-red); cursor: pointer; border: 1px solid var(--alert-red); padding: 5px 15px; font-weight: bold; }
         .close-btn:hover { background: var(--alert-red); color: white; }
 
-        .legal-content h3 { color: var(--sky-blue); margin-top: 2rem; margin-bottom: 1rem; text-transform: uppercase; font-size: 1rem; }
-        .legal-content p { margin-bottom: 1rem; line-height: 1.6; color: var(--text-dim); text-align: justify; }
+        .legal-content h3 { color: var(--sky-blue); margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase; font-size: 1.1rem; border-bottom: 1px solid rgba(0, 210, 255, 0.1); padding-bottom: 0.5rem; }
+        .legal-content p { margin-bottom: 1rem; line-height: 1.6; color: var(--text-dim); text-align: justify; font-size: 0.95rem; }
         .legal-content ul { margin-left: 2rem; margin-bottom: 1rem; color: var(--text-dim); }
+        .legal-content li { margin-bottom: 0.5rem; }
+        .legal-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; color: var(--text-dim); font-size: 0.9rem; }
+        .legal-content th, .legal-content td { border: 1px solid var(--border); padding: 8px; text-align: left; }
+        .legal-content th { background: rgba(0, 210, 255, 0.1); color: var(--sky-blue); }
+        .legal-content strong { color: var(--text); }
 
-        /* --- FORM STYLES (NEW) --- */
-        .cyber-form { margin-top: 2rem; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-label { display: block; color: var(--sky-blue); margin-bottom: 0.5rem; font-family: monospace; }
-        .cyber-input {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border);
-            color: white;
-            padding: 12px;
-            font-family: 'Segoe UI', monospace;
-            transition: 0.3s;
-        }
-        .cyber-input:focus {
-            outline: none;
-            border-color: var(--sky-blue);
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
-        }
+        /* --- BUTTONS --- */
         .cyber-btn-submit {
             background: var(--alert-red);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 15px 24px;
             font-family: monospace;
             text-transform: uppercase;
             cursor: pointer;
@@ -168,6 +166,10 @@
             transition: 0.3s;
             display: block;
             width: 100%;
+            font-weight: bold;
+            margin-top: 2rem;
+            text-decoration: none;
+            text-align: center;
         }
         .cyber-btn-submit:hover {
             box-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
@@ -211,25 +213,25 @@
         <div id="view-home">
             <div class="lang-fr">
                 <section class="hero">
-                    <h1>Identifiez.<br>Collectionnez.</h1>
-                    <p>Le premier Pokédex de l'aviation civile et militaire. Données temps réel, sans compromis.</p>
-                    <a href="mailto:admin@scan-horizon.com" class="btn">Accès Alpha 2026</a>
+                    <h1>Explorez<br>l'Invisible.</h1>
+                    <p>Technologie de reconnaissance avancée. Base de données temps réel. Le ciel n'est que le début.</p>
+                    <a href="mailto:admin@scan-horizon.com" class="btn">Demande d'accès Alpha 2026</a>
                 </section>
                 <div class="grid">
                     <section class="card">
-                        <h2>[ SYSTÈME ]</h2>
+                        <h2>[ PROTOCOLE ]</h2>
                         <ul>
-                            <li>IA de reconnaissance visuelle</li>
-                            <li>Base de données temps réel</li>
-                            <li>Badges de rareté (A380, Concorde)</li>
+                            <li>Identification visuelle (AR)</li>
+                            <li>Flux de données crypté</li>
+                            <li>Intelligence aéronautique</li>
                         </ul>
                     </section>
                     <section class="card">
-                        <h2>[ DONNÉES ]</h2>
+                        <h2>[ CONFIDENTIALITÉ ]</h2>
                         <ul>
-                            <li>Stockage local (No-Cloud)</li>
-                            <li>0 Traceurs publicitaires hors consentement</li>
-                            <li>Conforme RGPD & CCPA</li>
+                            <li>Traitement local prioritaire</li>
+                            <li>Architecture sécurisée</li>
+                            <li>Conformité RGPD stricte</li>
                         </ul>
                     </section>
                 </div>
@@ -237,25 +239,25 @@
 
             <div class="lang-en hidden">
                 <section class="hero">
-                    <h1>Identify.<br>Collect.</h1>
-                    <p>The ultimate Pokédex for aviation enthusiasts. Real-time data, zero compromise.</p>
-                    <a href="mailto:admin@scan-horizon.com" class="btn">Alpha Access 2026</a>
+                    <h1>Explore<br>the Unseen.</h1>
+                    <p>Advanced recognition technology. Real-time database. The sky is just the beginning.</p>
+                    <a href="mailto:admin@scan-horizon.com" class="btn">Alpha Access Request 2026</a>
                 </section>
                 <div class="grid">
                     <section class="card">
-                        <h2>[ SYSTEM ]</h2>
+                        <h2>[ PROTOCOL ]</h2>
                         <ul>
-                            <li>Visual Recognition AI</li>
-                            <li>Real-time Database</li>
-                            <li>Rarity Badges (A380, Concorde)</li>
+                            <li>Visual Identification (AR)</li>
+                            <li>Encrypted Data Stream</li>
+                            <li>Aeronautical Intelligence</li>
                         </ul>
                     </section>
                     <section class="card">
-                        <h2>[ DATA ]</h2>
+                        <h2>[ PRIVACY ]</h2>
                         <ul>
-                            <li>Local Storage (No-Cloud)</li>
-                            <li>0 Ad-trackers without consent</li>
-                            <li>GDPR & CCPA Compliant</li>
+                            <li>Local processing priority</li>
+                            <li>Secure architecture</li>
+                            <li>Strict GDPR compliance</li>
                         </ul>
                     </section>
                 </div>
@@ -270,62 +272,110 @@
             </div>
             <div class="legal-content">
                 <div class="lang-fr">
-                    <h3>1. Collecte des données</h3>
-                    <p>Nous collectons les données suivantes nécessaires au fonctionnement de l'application : identifiants techniques, données de crash (Sentry), et identifiants publicitaires (si consentement donné).</p>
-                    <h3>2. Services Tiers</h3>
-                    <p>Nous utilisons Google AdMob (Publicité) et Google Analytics. Ces services peuvent transférer des données hors de l'UE (USA). Vous pouvez retirer votre consentement à tout moment dans les paramètres.</p>
-                    <h3>3. Droits & Suppression</h3>
-                    <p>Vous disposez d'un droit d'accès et de suppression. Vous pouvez effectuer une demande de suppression immédiate via le formulaire dédié (lien en bas de page) ou dans les paramètres de l'application.</p>
+                    <p><strong>Version : 1.1 | Date d'entrée en vigueur : 01 Février 2026</strong></p>
+                    <p>La présente Politique de Confidentialité vise à informer les utilisateurs de l'application mobile <strong>ScanHorizon</strong> des modalités de collecte, de traitement et de protection de leurs données personnelles. L'Éditeur s'engage à respecter scrupuleusement le Règlement (UE) 2016/679 (RGPD).</p>
+
+                    <h3>1. DONNÉES COLLECTÉES (PRIVACY BY DESIGN)</h3>
+                    <p>Nous collectons uniquement les données strictement nécessaires au bon fonctionnement du service.</p>
+                    <ul>
+                        <li><strong>Géolocalisation (GPS) :</strong> Latitude, longitude, altitude, vitesse. Collectées en temps réel pour le radar. Non historisées.</li>
+                        <li><strong>Données techniques :</strong> Modèle du smartphone, OS, langue, IP, UUID technique (pour la gestion des crashs et l'analyse).</li>
+                        <li><strong>Réalité Augmentée :</strong> Le traitement d'image est effectué <strong>localement</strong> sur votre appareil. Aucun flux vidéo n'est envoyé sur nos serveurs.</li>
+                        <li><strong>Données commerciales :</strong> Historique des achats. L'Éditeur n'a jamais accès à vos coordonnées bancaires (gérées par Apple/Google).</li>
+                    </ul>
+
+                    <h3>2. PROTECTION DE L'ENFANCE (-15 ANS)</h3>
+                    <p>L'Application est strictement interdite aux moins de 15 ans. L'Éditeur ne collecte pas sciemment de données auprès de mineurs de moins de 15 ans. Si un parent découvre que son enfant a fourni des données, il peut nous contacter à admin@scan-horizon.com pour suppression immédiate.</p>
+
+                    <h3>3. DESTINATAIRES ET TRANSFERTS</h3>
+                    <p>Vos données ne sont ni vendues ni louées. Elles sont transmises uniquement à nos sous-traitants techniques :</p>
+                    <ul>
+                        <li><strong>Google Cloud / Firebase (Irlande) :</strong> Hébergement sécurisé.</li>
+                        <li><strong>PlaneFinder (UK) :</strong> API aéronautique (GPS anonymisé).</li>
+                        <li><strong>RevenueCat (USA) :</strong> Gestion des abonnements.</li>
+                    </ul>
+                    <p>Les transferts hors UE sont encadrés par les Clauses Contractuelles Types (CCT) ou le Data Privacy Framework (DPF).</p>
+
+                    <h3>4. VOS DROITS</h3>
+                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité. Vous pouvez exercer ces droits directement dans l'application ou via le formulaire de suppression ci-dessous.</p>
                 </div>
+
                 <div class="lang-en hidden">
-                    <h3>1. Data Collection</h3>
-                    <p>We collect data necessary for app functionality: technical IDs, crash reports (Sentry), and advertising IDs (if consent is given).</p>
-                    <h3>2. Third Party Services</h3>
-                    <p>We use Google AdMob (Ads) and Google Analytics. These services may transfer data outside the EU (USA). You can withdraw consent at any time in Settings.</p>
-                    <h3>3. Rights & Deletion</h3>
-                    <p>You have the right to access and delete your data. You can request immediate deletion via the dedicated form (link in footer) or within the app settings.</p>
+                    <p><strong>Version: 1.1 | Effective Date: February 01, 2026</strong></p>
+                    <p>This Privacy Policy aims to inform users of the <strong>ScanHorizon</strong> mobile application about how their personal data is collected, processed, and protected. The Publisher is committed to strictly complying with GDPR.</p>
+
+                    <h3>1. COLLECTED DATA (PRIVACY BY DESIGN)</h3>
+                    <p>We only collect data strictly necessary for the service.</p>
+                    <ul>
+                        <li><strong>Geolocation (GPS):</strong> Latitude, longitude, altitude, speed. Collected in real-time for radar. Not stored historically.</li>
+                        <li><strong>Technical Data:</strong> Smartphone model, OS, language, IP, technical UUID (for crash handling and analytics).</li>
+                        <li><strong>Augmented Reality:</strong> Image processing is performed <strong>locally</strong> on your device. No video feed is sent to our servers.</li>
+                        <li><strong>Commercial Data:</strong> Purchase history. The Publisher never has access to your banking details (handled by Apple/Google).</li>
+                    </ul>
+
+                    <h3>2. CHILD PROTECTION (UNDER 15)</h3>
+                    <p>The Application is strictly prohibited for users under 15. The Publisher does not knowingly collect data from minors under 15. If a parent discovers their child has provided data, contact admin@scan-horizon.com for immediate deletion.</p>
+
+                    <h3>3. RECIPIENTS AND TRANSFERS</h3>
+                    <p>Your data is neither sold nor rented. It is transmitted only to our technical subcontractors:</p>
+                    <ul>
+                        <li><strong>Google Cloud / Firebase (Ireland):</strong> Secure hosting.</li>
+                        <li><strong>PlaneFinder (UK):</strong> Aeronautical API (Anonymized GPS).</li>
+                        <li><strong>RevenueCat (USA):</strong> Subscription management.</li>
+                    </ul>
+                    <p>Transfers outside the EU are covered by Standard Contractual Clauses (SCC) or the Data Privacy Framework (DPF).</p>
+
+                    <h3>4. YOUR RIGHTS</h3>
+                    <p>Under GDPR, you have the right to access, rectify, erase, and port your data. You can exercise these rights directly in the app or via the deletion form below.</p>
                 </div>
             </div>
         </div>
 
         <div id="view-terms" class="legal-container">
             <div class="legal-header">
-                <span class="legal-title lang-fr">CONDITIONS D'UTILISATION (CGU)</span>
-                <span class="legal-title lang-en hidden">TERMS OF USE</span>
+                <span class="legal-title lang-fr">CONDITIONS GÉNÉRALES (CGU / CGV)</span>
+                <span class="legal-title lang-en hidden">TERMS & CONDITIONS</span>
                 <div class="close-btn" onclick="navigate('home')">X</div>
             </div>
             <div class="legal-content">
                 <div class="lang-fr">
-                    <p>L'utilisation de ScanHorizon implique l'acceptation pleine et entière des présentes conditions.</p>
-                    <h3>Propriété Intellectuelle</h3>
-                    <p>Le code, le design et la base de données sont la propriété exclusive de l'éditeur.</p>
-                </div>
-                <div class="lang-en hidden">
-                    <p>Use of ScanHorizon implies full acceptance of these terms.</p>
-                    <h3>Intellectual Property</h3>
-                    <p>Code, design, and databases are the exclusive property of the publisher.</p>
-                </div>
-            </div>
-        </div>
+                    <p><strong>Dernière mise à jour : 01 Février 2026</strong></p>
+                    <p>L'INSTALLATION DE L'APPLICATION VAUT ACCEPTATION SANS RÉSERVE DES PRÉSENTES CONDITIONS.</p>
 
-        <div id="view-sales" class="legal-container">
-            <div class="legal-header">
-                <span class="legal-title lang-fr">CONDITIONS DE VENTE (CGV)</span>
-                <span class="legal-title lang-en hidden">TERMS OF SALE</span>
-                <div class="close-btn" onclick="navigate('home')">X</div>
-            </div>
-            <div class="legal-content">
-                <div class="lang-fr">
-                    <h3>Achats In-App</h3>
-                    <p>Les abonnements et achats sont gérés par les plateformes (Apple/Google). Le paiement est immédiat.</p>
-                    <h3>Droit de Rétractation</h3>
-                    <p>En validant l'achat de contenu numérique, vous acceptez l'exécution immédiate du contrat et renoncez expressément à votre droit de rétractation de 14 jours.</p>
+                    <h3>1. ACCÈS ET ÂGE</h3>
+                    <p>L'utilisation de l'Application est <strong>strictement interdite aux moins de 15 ans</strong>. Tout compte créé par un moins de 15 ans sera supprimé sans préavis. Les mineurs de 15 à 18 ans doivent avoir l'accord de leurs parents.</p>
+
+                    <h3>2. SÉCURITÉ PHYSIQUE (VIGILANCE)</h3>
+                    <p>L'Utilisateur reconnaît utiliser l'Application dans le monde réel. Il s'engage à rester vigilant à son environnement (voitures, obstacles) et à ne jamais utiliser l'Application en conduisant. L'Éditeur décline toute responsabilité en cas d'accident.</p>
+
+                    <h3>3. LIMITATION DE RESPONSABILITÉ</h3>
+                    <p>CECI N'EST PAS UN INSTRUMENT DE NAVIGATION. Les données sont fournies à titre indicatif. Si la responsabilité de l'Éditeur devait être engagée, le montant des indemnités ne pourra excéder la somme totale payée par l'Utilisateur au cours des 12 derniers mois.</p>
+
+                    <h3>4. ACHATS ET RÉTRACTATION</h3>
+                    <p>Les abonnements sont gérés par les stores (Apple/Google). <strong>RENONCIATION :</strong> En validant son achat, l'Utilisateur accepte l'exécution immédiate du service et renonce expressément à son droit de rétractation de 14 jours. Aucun remboursement ne sera effectué par l'Éditeur.</p>
+
+                    <h3>5. MÉDIATION</h3>
+                    <p>En cas de litige non résolu, l'Utilisateur peut recourir gratuitement au médiateur de la consommation : <strong>CM2C</strong> (www.cm2c.net - 49 Rue de Ponthieu, 75008 Paris).</p>
                 </div>
+
                 <div class="lang-en hidden">
-                    <h3>In-App Purchases</h3>
-                    <p>Subscriptions and purchases are handled by the platforms (Apple/Google).</p>
-                    <h3>Right of Withdrawal</h3>
-                    <p>By purchasing digital content, you agree to immediate performance of the contract and waive your right of withdrawal.</p>
+                    <p><strong>Last Update: February 01, 2026</strong></p>
+                    <p>INSTALLATION OF THE APPLICATION IMPLIES UNRESERVED ACCEPTANCE OF THESE TERMS.</p>
+
+                    <h3>1. ACCESS AND AGE</h3>
+                    <p>Use of the Application is <strong>strictly prohibited for those under 15</strong>. Any account created by a person under 15 will be deleted without notice. Minors aged 15 to 18 must have parental consent.</p>
+
+                    <h3>2. PHYSICAL SAFETY (VIGILANCE)</h3>
+                    <p>The User acknowledges using the App in the real world. They agree to remain vigilant of their surroundings (cars, obstacles) and never to use the App while driving. The Publisher declines all liability in case of accident.</p>
+
+                    <h3>3. LIMITATION OF LIABILITY</h3>
+                    <p>THIS IS NOT A NAVIGATION INSTRUMENT. Data is for entertainment only. If the Publisher is held liable, compensation shall not exceed the total amount paid by the User over the last 12 months.</p>
+
+                    <h3>4. PURCHASES AND WITHDRAWAL</h3>
+                    <p>Subscriptions are managed by the stores (Apple/Google). <strong>WAIVER:</strong> By validating the purchase, the User accepts immediate execution of the service and expressly waives their 14-day right of withdrawal. No refunds will be issued by the Publisher.</p>
+
+                    <h3>5. MEDIATION</h3>
+                    <p>In case of unresolved dispute, the User may have free recourse to the consumer mediator: <strong>CM2C</strong> (www.cm2c.net).</p>
                 </div>
             </div>
         </div>
@@ -338,18 +388,41 @@
             </div>
             <div class="legal-content">
                 <div class="lang-fr">
-                    <h3>Éditeur</h3>
-                    <p>ScanHorizon SAS<br>Adresse : 10 impasse du Pegan, 01210 Ferney Voltaire<br>Contact : admin@scan-horizon.com</p>
-                    <h3>Médiation</h3>
-                    <p>CM2C - www.cm2c.net - 49 Rue de Ponthieu, 75008 Paris.</p>
-                    <h3>Hébergeur</h3>
-                    <p>Google Cloud Platform / Firebase<br>Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+                    <h3>1. ÉDITEUR</h3>
+                    <p><strong>SAS SCAN HORIZON</strong><br>
+                    Société par Actions Simplifiée au capital de 1000 euros.<br>
+                    Siège social : 10 impasse du Pegan, 01210 Ferney-Voltaire, France.<br>
+                    RCS de Bourg-en-Bresse sous le numéro : <strong>[VOTRE_NUMERO_SIRET]</strong>.<br>
+                    TVA Intracommunautaire : <strong>[VOTRE_NUMERO_TVA]</strong>.<br>
+                    Directeur de la publication : Paulin BANCKAERT.<br>
+                    Contact : admin@scan-horizon.com</p>
+
+                    <h3>2. HÉBERGEMENT</h3>
+                    <p>L'application est hébergée sur l'infrastructure Cloud de :<br>
+                    <strong>Google Cloud Platform / Firebase</strong><br>
+                    Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlande.</p>
+
+                    <h3>3. PROPRIÉTÉ INTELLECTUELLE</h3>
+                    <p>L'ensemble de l'application (code source, algorithmes, design) est la propriété exclusive de la SAS SCAN HORIZON. Toute reproduction est interdite.</p>
                 </div>
+
                 <div class="lang-en hidden">
-                    <h3>Publisher</h3>
-                    <p>ScanHorizon SAS<br>Address: 10 impasse du Pegan, 01210 Ferney Voltaire<br>Contact: admin@scan-horizon.com</p>
-                    <h3>Host</h3>
-                    <p>Google Cloud Platform / Firebase<br>Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+                    <h3>1. PUBLISHER</h3>
+                    <p><strong>SAS SCAN HORIZON</strong><br>
+                    Simplified Joint Stock Company with a capital of 1000 euros.<br>
+                    Headquarters: 10 impasse du Pegan, 01210 Ferney-Voltaire, France.<br>
+                    RCS Bourg-en-Bresse number: <strong>[YOUR_SIRET_NUMBER]</strong>.<br>
+                    VAT Number: <strong>[YOUR_VAT_NUMBER]</strong>.<br>
+                    Director: Paulin BANCKAERT.<br>
+                    Contact: admin@scan-horizon.com</p>
+
+                    <h3>2. HOSTING</h3>
+                    <p>The application is hosted on the Cloud infrastructure of:<br>
+                    <strong>Google Cloud Platform / Firebase</strong><br>
+                    Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+
+                    <h3>3. INTELLECTUAL PROPERTY</h3>
+                    <p>The entire application (source code, algorithms, design) is the exclusive property of SAS SCAN HORIZON. Any reproduction is prohibited.</p>
                 </div>
             </div>
         </div>
@@ -368,7 +441,7 @@
                     <p>To ensure the security of your request, we use a secure external form. Once submitted, your data will be deleted within 30 days.</p>
                 </div>
 
-                <a href="https://forms.gle/rJrmhro8WhCAsTFM9" target="_blank" class="cyber-btn-submit" style="text-decoration:none; text-align:center; display:block;">
+                <a href="https://forms.gle/rJrmhro8WhCAsTFM9" target="_blank" class="cyber-btn-submit">
                     <span class="lang-fr">OUVRIR LE FORMULAIRE DE SUPPRESSION</span>
                     <span class="lang-en hidden">OPEN DELETION FORM</span>
                 </a>
@@ -388,10 +461,7 @@
                 <span class="lang-fr">Confidentialité</span><span class="lang-en hidden">Privacy</span>
             </a>
             <a onclick="navigate('terms')">
-                <span class="lang-fr">CGU</span><span class="lang-en hidden">Terms</span>
-            </a>
-            <a onclick="navigate('sales')">
-                <span class="lang-fr">CGV</span><span class="lang-en hidden">Sales</span>
+                <span class="lang-fr">CGU / CGV</span><span class="lang-en hidden">Terms</span>
             </a>
             <a onclick="navigate('legal')">
                 <span class="lang-fr">Mentions Légales</span><span class="lang-en hidden">Legal Notice</span>
@@ -400,7 +470,7 @@
                 <span class="lang-fr">Supprimer mes données</span><span class="lang-en hidden">Delete My Data</span>
             </a>
         </nav>
-        <p class="copyright">SCANHORIZON TERMINAL v1.1.0 — © 2026</p>
+        <p class="copyright">SCANHORIZON TERMINAL v1.2.0 — © 2026</p>
     </footer>
 
     <script>
@@ -422,20 +492,6 @@
             state.view = viewId;
             updateRender();
             window.scrollTo(0,0);
-        }
-
-        // Gestion de l'envoi de la demande de suppression (Simulation Mailto)
-        function handleDeleteRequest(e) {
-            e.preventDefault();
-            const email = document.getElementById('delete-email').value;
-            const reason = document.getElementById('delete-reason').value;
-            
-            // Construction du mail
-            const subject = `[DELETE REQUEST] Account deletion for ${email}`;
-            const body = `USER EMAIL: ${email}\nREASON: ${reason}\n\nPlease proceed with the deletion of my account and all associated data in accordance with GDPR/CCPA.`;
-            
-            // Ouverture du client mail
-            window.location.href = `mailto:admin@scan-horizon.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
         function updateRender() {
