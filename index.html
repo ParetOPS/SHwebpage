@@ -20,7 +20,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', 'Roboto Mono', monospace; /* Font plus "Tech" */
+            font-family: 'Segoe UI', 'Roboto Mono', monospace;
             background-color: var(--deep-space);
             color: var(--text);
             overflow-x: hidden;
@@ -120,7 +120,7 @@
             padding: 3rem;
             max-width: 900px;
             margin: 0 auto;
-            display: none; /* Caché par défaut */
+            display: none; 
         }
         
         .legal-container.active { display: block; animation: fadeIn 0.5s ease; }
@@ -138,6 +138,42 @@
         .legal-content p { margin-bottom: 1rem; line-height: 1.6; color: var(--text-dim); text-align: justify; }
         .legal-content ul { margin-left: 2rem; margin-bottom: 1rem; color: var(--text-dim); }
 
+        /* --- FORM STYLES (NEW) --- */
+        .cyber-form { margin-top: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; color: var(--sky-blue); margin-bottom: 0.5rem; font-family: monospace; }
+        .cyber-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 12px;
+            font-family: 'Segoe UI', monospace;
+            transition: 0.3s;
+        }
+        .cyber-input:focus {
+            outline: none;
+            border-color: var(--sky-blue);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+        }
+        .cyber-btn-submit {
+            background: var(--alert-red);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-family: monospace;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+        }
+        .cyber-btn-submit:hover {
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.4);
+            background: #ff1a53;
+        }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* --- Footer --- */
@@ -153,9 +189,10 @@
             font-family: monospace; text-transform: uppercase; transition: 0.2s; cursor: pointer;
         }
         .footer-links a:hover { color: var(--sky-blue); text-shadow: 0 0 8px var(--sky-blue); }
+        .footer-links a.danger-link { color: var(--alert-red); }
+        .footer-links a.danger-link:hover { text-shadow: 0 0 8px var(--alert-red); }
         .copyright { font-family: monospace; font-size: 0.7rem; color: #555; }
 
-        /* --- Utility --- */
         .hidden { display: none !important; }
     </style>
 </head>
@@ -176,7 +213,7 @@
                 <section class="hero">
                     <h1>Identifiez.<br>Collectionnez.</h1>
                     <p>Le premier Pokédex de l'aviation civile et militaire. Données temps réel, sans compromis.</p>
-                    <a href="mailto:contact@scan-horizon.com" class="btn">Accès Alpha 2026</a>
+                    <a href="mailto:admin@scan-horizon.com" class="btn">Accès Alpha 2026</a>
                 </section>
                 <div class="grid">
                     <section class="card">
@@ -202,7 +239,7 @@
                 <section class="hero">
                     <h1>Identify.<br>Collect.</h1>
                     <p>The ultimate Pokédex for aviation enthusiasts. Real-time data, zero compromise.</p>
-                    <a href="mailto:contact@scan-horizon.com" class="btn">Alpha Access 2026</a>
+                    <a href="mailto:admin@scan-horizon.com" class="btn">Alpha Access 2026</a>
                 </section>
                 <div class="grid">
                     <section class="card">
@@ -237,16 +274,16 @@
                     <p>Nous collectons les données suivantes nécessaires au fonctionnement de l'application : identifiants techniques, données de crash (Sentry), et identifiants publicitaires (si consentement donné).</p>
                     <h3>2. Services Tiers</h3>
                     <p>Nous utilisons Google AdMob (Publicité) et Google Analytics. Ces services peuvent transférer des données hors de l'UE (USA). Vous pouvez retirer votre consentement à tout moment dans les paramètres.</p>
-                    <h3>3. Droits</h3>
-                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données via les paramètres de l'application.</p>
+                    <h3>3. Droits & Suppression</h3>
+                    <p>Vous disposez d'un droit d'accès et de suppression. Vous pouvez effectuer une demande de suppression immédiate via le formulaire dédié (lien en bas de page) ou dans les paramètres de l'application.</p>
                 </div>
                 <div class="lang-en hidden">
                     <h3>1. Data Collection</h3>
                     <p>We collect data necessary for app functionality: technical IDs, crash reports (Sentry), and advertising IDs (if consent is given).</p>
                     <h3>2. Third Party Services</h3>
                     <p>We use Google AdMob (Ads) and Google Analytics. These services may transfer data outside the EU (USA). You can withdraw consent at any time in Settings.</p>
-                    <h3>3. Your Rights</h3>
-                    <p>Under GDPR/CCPA, you have the right to access, correct, and delete your data via the app settings.</p>
+                    <h3>3. Rights & Deletion</h3>
+                    <p>You have the right to access and delete your data. You can request immediate deletion via the dedicated form (link in footer) or within the app settings.</p>
                 </div>
             </div>
         </div>
@@ -302,16 +339,53 @@
             <div class="legal-content">
                 <div class="lang-fr">
                     <h3>Éditeur</h3>
-                    <p>ScanHorizon SAS (ou ton nom)<br>Adresse : [Ton Adresse]<br>Contact : contact@scan-horizon.com</p>
-                    <h3>Hébergeur des données</h3>
+                    <p>ScanHorizon SAS<br>Adresse : 10 impasse du Pegan, 01210 Ferney Voltaire<br>Contact : admin@scan-horizon.com</p>
+                    <h3>Médiation</h3>
+                    <p>CM2C - www.cm2c.net - 49 Rue de Ponthieu, 75008 Paris.</p>
+                    <h3>Hébergeur</h3>
                     <p>Google Cloud Platform / Firebase<br>Gordon House, Barrow Street, Dublin 4, Ireland.</p>
                 </div>
                 <div class="lang-en hidden">
                     <h3>Publisher</h3>
-                    <p>ScanHorizon Inc.<br>Address: [Your Address]<br>Contact: contact@scan-horizon.com</p>
-                    <h3>Data Host</h3>
+                    <p>ScanHorizon SAS<br>Address: 10 impasse du Pegan, 01210 Ferney Voltaire<br>Contact: admin@scan-horizon.com</p>
+                    <h3>Host</h3>
                     <p>Google Cloud Platform / Firebase<br>Gordon House, Barrow Street, Dublin 4, Ireland.</p>
                 </div>
+            </div>
+        </div>
+
+        <div id="view-delete" class="legal-container">
+            <div class="legal-header">
+                <span class="legal-title lang-fr" style="color:var(--alert-red)">SUPPRESSION DE COMPTE</span>
+                <span class="legal-title lang-en hidden" style="color:var(--alert-red)">DELETE ACCOUNT</span>
+                <div class="close-btn" onclick="navigate('home')">X</div>
+            </div>
+            <div class="legal-content">
+                <div class="lang-fr">
+                    <p>Utilisez ce formulaire pour demander la suppression définitive de votre compte et de toutes les données associées. Cette action est irréversible.</p>
+                </div>
+                <div class="lang-en hidden">
+                    <p>Use this form to request the permanent deletion of your account and all associated data. This action is irreversible.</p>
+                </div>
+
+                <form class="cyber-form" onsubmit="handleDeleteRequest(event)">
+                    <div class="form-group">
+                        <label class="form-label">Email (Compte / Account)</label>
+                        <input type="email" id="delete-email" class="cyber-input" placeholder="user@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="lang-fr">Raison (Optionnel)</span>
+                            <span class="lang-en hidden">Reason (Optional)</span>
+                        </label>
+                        <textarea id="delete-reason" class="cyber-input" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cyber-btn-submit">
+                        <span class="lang-fr">CONFIRMER LA SUPPRESSION</span>
+                        <span class="lang-en hidden">CONFIRM DELETION</span>
+                    </button>
+                </form>
             </div>
         </div>
 
@@ -326,77 +400,73 @@
                 <span class="lang-fr">CGU</span><span class="lang-en hidden">Terms</span>
             </a>
             <a onclick="navigate('sales')">
-                <span class="lang-fr">CGV (Vente)</span><span class="lang-en hidden">Sales Policy</span>
+                <span class="lang-fr">CGV</span><span class="lang-en hidden">Sales</span>
             </a>
             <a onclick="navigate('legal')">
                 <span class="lang-fr">Mentions Légales</span><span class="lang-en hidden">Legal Notice</span>
             </a>
+            <a onclick="navigate('delete')" class="danger-link">
+                <span class="lang-fr">Supprimer mes données</span><span class="lang-en hidden">Delete My Data</span>
+            </a>
         </nav>
-        <p class="copyright">SCANHORIZON TERMINAL v1.0.4 — © 2026</p>
+        <p class="copyright">SCANHORIZON TERMINAL v1.1.0 — © 2026</p>
     </footer>
 
     <script>
         // État global
         let state = {
-            lang: 'fr', // 'fr' ou 'en'
-            view: 'home' // 'home', 'privacy', 'terms', 'sales', 'legal'
+            lang: 'fr', 
+            view: 'home' 
         };
 
-        // Fonction pour changer la langue
         function setLanguage(lang) {
             state.lang = lang;
-            
-            // Mise à jour des boutons du header
             document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            
-            // Mise à jour de l'attribut HTML pour l'accessibilité
             document.documentElement.setAttribute('lang', lang);
-
             updateRender();
         }
 
-        // Fonction de navigation
         function navigate(viewId) {
             state.view = viewId;
             updateRender();
-            // Scroll en haut si on change de vue
             window.scrollTo(0,0);
         }
 
-        // Fonction principale de rendu
+        // Gestion de l'envoi de la demande de suppression (Simulation Mailto)
+        function handleDeleteRequest(e) {
+            e.preventDefault();
+            const email = document.getElementById('delete-email').value;
+            const reason = document.getElementById('delete-reason').value;
+            
+            // Construction du mail
+            const subject = `[DELETE REQUEST] Account deletion for ${email}`;
+            const body = `USER EMAIL: ${email}\nREASON: ${reason}\n\nPlease proceed with the deletion of my account and all associated data in accordance with GDPR/CCPA.`;
+            
+            // Ouverture du client mail
+            window.location.href = `mailto:admin@scan-horizon.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
         function updateRender() {
-            // 1. Gérer la visibilité des textes (FR vs EN)
+            // Langue
             const frElements = document.querySelectorAll('.lang-fr');
             const enElements = document.querySelectorAll('.lang-en');
 
-            frElements.forEach(el => {
-                if(state.lang === 'fr') el.classList.remove('hidden');
-                else el.classList.add('hidden');
-            });
+            frElements.forEach(el => el.classList.toggle('hidden', state.lang !== 'fr'));
+            enElements.forEach(el => el.classList.toggle('hidden', state.lang !== 'en'));
 
-            enElements.forEach(el => {
-                if(state.lang === 'en') el.classList.remove('hidden');
-                else el.classList.add('hidden');
-            });
-
-            // 2. Gérer la vue active (Home vs Docs)
-            // On cache tout d'abord
+            // Vues
             document.getElementById('view-home').style.display = 'none';
             document.querySelectorAll('.legal-container').forEach(el => el.classList.remove('active'));
 
-            // On affiche la bonne vue
             if (state.view === 'home') {
                 document.getElementById('view-home').style.display = 'block';
             } else {
                 const activeDoc = document.getElementById(`view-${state.view}`);
-                if(activeDoc) {
-                    activeDoc.classList.add('active');
-                }
+                if(activeDoc) activeDoc.classList.add('active');
             }
         }
 
-        // Initialisation automatique
         document.addEventListener('DOMContentLoaded', () => {
             const userLang = navigator.language || navigator.userLanguage;
             setLanguage(userLang.startsWith('en') ? 'en' : 'fr');
