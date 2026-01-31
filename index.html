@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ScanHorizon - Identifiez, scannez et collectionnez les avions en temps réel. L'application ultime pour les passionnés d'aviation.">
-    <title>ScanHorizon | Capturez le Ciel</title>
+    <meta name="description" content="ScanHorizon - Identifiez, scannez et collectionnez les avions.">
+    <title>ScanHorizon | Terminal</title>
     <style>
         :root {
             --sky-blue: #00d2ff;
             --radar-green: #00ff9d;
+            --alert-red: #ff3366;
             --deep-space: #050a15;
-            --glass: rgba(15, 25, 45, 0.85);
+            --glass: rgba(15, 25, 45, 0.95);
             --border: rgba(0, 210, 255, 0.3);
             --text: #e0e6ed;
+            --text-dim: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', 'Roboto Mono', monospace; /* Font plus "Tech" */
             background-color: var(--deep-space);
             color: var(--text);
             overflow-x: hidden;
@@ -27,162 +29,141 @@
                 linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px);
             background-size: 100% 100%, 50px 50px, 50px 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Animation de Scan Laser */
+        /* --- Scan Animation --- */
         .scan-line {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 4px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 4px;
             background: linear-gradient(to right, transparent, var(--sky-blue), transparent);
             box-shadow: 0 0 15px var(--sky-blue);
             z-index: 9999;
             animation: scanMove 4s linear infinite;
             pointer-events: none;
         }
-
         @keyframes scanMove {
             0% { top: -5%; opacity: 0; }
             50% { opacity: 1; }
             100% { top: 105%; opacity: 0; }
         }
 
+        /* --- Header --- */
         header {
-            padding: 1.5rem 10%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border);
+            background: rgba(5, 10, 21, 0.8);
             backdrop-filter: blur(10px);
             position: sticky; top: 0; z-index: 100;
         }
 
         .logo {
-            font-weight: 900;
-            font-size: 1.6rem;
-            letter-spacing: 2px;
-            color: var(--sky-blue);
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+            font-weight: 900; font-size: 1.4rem; letter-spacing: 2px;
+            color: var(--sky-blue); cursor: pointer;
         }
 
         .lang-switch button {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--sky-blue);
-            padding: 5px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.7rem;
-            margin-left: 5px;
-            transition: 0.3s;
+            background: transparent; border: 1px solid var(--border);
+            color: var(--sky-blue); padding: 5px 12px;
+            border-radius: 2px; cursor: pointer; font-size: 0.75rem;
+            margin-left: 5px; transition: 0.3s; font-family: monospace;
+        }
+        .lang-switch button:hover, .lang-switch button.active {
+            background: var(--sky-blue); color: var(--deep-space);
+            box-shadow: 0 0 10px var(--sky-blue);
         }
 
-        .lang-switch button.active {
-            background: var(--sky-blue);
-            color: var(--deep-space);
-            box-shadow: 0 0 15px var(--sky-blue);
+        /* --- Main Layout --- */
+        main { 
+            flex: 1; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 4rem 2rem; 
+            width: 100%;
         }
 
-        main { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-
-        .hero { text-align: center; margin-bottom: 6rem; position: relative; }
-
+        /* --- Hero & Grid (Home View) --- */
+        .hero { text-align: center; margin-bottom: 6rem; }
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.9;
-            margin-bottom: 2rem;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            text-transform: uppercase; letter-spacing: -2px;
             background: linear-gradient(to bottom, #fff, #777);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
         }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        .btn-group { display: flex; gap: 1rem; justify-content: center; }
-
+        .hero p { color: var(--text-dim); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; }
+        
         .btn {
-            padding: 18px 35px;
-            border-radius: 0px; /* Style technique carré */
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-            border: 1px solid var(--sky-blue);
+            padding: 15px 30px; border: 1px solid var(--sky-blue);
+            text-decoration: none; font-weight: bold; text-transform: uppercase;
+            color: var(--sky-blue); transition: 0.3s; display: inline-block;
         }
+        .btn:hover { background: var(--sky-blue); color: var(--deep-space); box-shadow: 0 0 20px rgba(0,210,255,0.4); }
 
-        .btn-main {
-            background: var(--sky-blue);
-            color: var(--deep-space);
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-        }
-
-        .btn-main:hover { background: #fff; box-shadow: 0 0 40px rgba(255,255,255,0.4); }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card {
+            background: var(--glass); border: 1px solid var(--border);
+            padding: 2rem; position: relative;
+        }
+        .card h2 { color: var(--radar-green); font-family: monospace; margin-bottom: 1rem; }
+        .card ul li { list-style: none; margin-bottom: 0.8rem; padding-left: 20px; position: relative; color: var(--text-dim); }
+        .card ul li::before { content: ">"; position: absolute; left: 0; color: var(--radar-green); }
+
+        /* --- Legal Views (Docs) --- */
+        .legal-container {
             background: var(--glass);
             border: 1px solid var(--border);
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: ""; position: absolute; top: 0; left: 0;
-            width: 20px; height: 20px;
-            border-top: 2px solid var(--radar-green);
-            border-left: 2px solid var(--radar-green);
-        }
-
-        .card h2 {
-            color: var(--radar-green);
-            font-family: monospace;
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-
-        .card ul li {
-            list-style: none;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .card ul li::before {
-            content: ">"; position: absolute; left: 0; color: var(--radar-green);
-        }
-
-        footer {
-            margin-top: 5rem;
             padding: 3rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: #555;
+            max-width: 900px;
+            margin: 0 auto;
+            display: none; /* Caché par défaut */
         }
+        
+        .legal-container.active { display: block; animation: fadeIn 0.5s ease; }
 
-        .lang-content { display: none; }
+        .legal-header { 
+            border-bottom: 1px solid var(--border); 
+            padding-bottom: 1rem; margin-bottom: 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .legal-title { color: var(--radar-green); font-family: monospace; font-size: 1.5rem; }
+        .close-btn { color: var(--alert-red); cursor: pointer; border: 1px solid var(--alert-red); padding: 5px 15px; }
+        .close-btn:hover { background: var(--alert-red); color: white; }
+
+        .legal-content h3 { color: var(--sky-blue); margin-top: 2rem; margin-bottom: 1rem; text-transform: uppercase; font-size: 1rem; }
+        .legal-content p { margin-bottom: 1rem; line-height: 1.6; color: var(--text-dim); text-align: justify; }
+        .legal-content ul { margin-left: 2rem; margin-bottom: 1rem; color: var(--text-dim); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: auto; padding: 2rem; text-align: center;
+            border-top: 1px solid var(--border); background: rgba(0,0,0,0.3);
+        }
+        .footer-links {
+            display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+        }
+        .footer-links a {
+            color: var(--text-dim); text-decoration: none; font-size: 0.8rem;
+            font-family: monospace; text-transform: uppercase; transition: 0.2s; cursor: pointer;
+        }
+        .footer-links a:hover { color: var(--sky-blue); text-shadow: 0 0 8px var(--sky-blue); }
+        .copyright { font-family: monospace; font-size: 0.7rem; color: #555; }
+
+        /* --- Utility --- */
+        .hidden { display: none !important; }
     </style>
 </head>
 <body>
     <div class="scan-line"></div>
 
     <header>
-        <div class="logo">SCANHORIZON // 01</div>
+        <div class="logo" onclick="navigate('home')">SCANHORIZON // 01</div>
         <div class="lang-switch">
             <button id="btn-fr" onclick="setLanguage('fr')" class="active">FR</button>
             <button id="btn-en" onclick="setLanguage('en')">EN</button>
@@ -190,81 +171,232 @@
     </header>
 
     <main>
-        <div id="fr-content" class="lang-content">
-            <section class="hero">
-                <h1>Identifiez.<br>Collectionnez.</h1>
-                <p>Pointez votre caméra vers le ciel et capturez les métadonnées de n'importe quel appareil en vol. Le premier Pokédex de l'aviation civile et militaire.</p>
-                <div class="btn-group">
-                    <a href="mailto:contact@scan-horizon.com" class="btn btn-main">Accès Alpha 2026</a>
+        <div id="view-home">
+            <div class="lang-fr">
+                <section class="hero">
+                    <h1>Identifiez.<br>Collectionnez.</h1>
+                    <p>Le premier Pokédex de l'aviation civile et militaire. Données temps réel, sans compromis.</p>
+                    <a href="mailto:contact@scan-horizon.com" class="btn">Accès Alpha 2026</a>
+                </section>
+                <div class="grid">
+                    <section class="card">
+                        <h2>[ SYSTÈME ]</h2>
+                        <ul>
+                            <li>IA de reconnaissance visuelle</li>
+                            <li>Base de données temps réel</li>
+                            <li>Badges de rareté (A380, Concorde)</li>
+                        </ul>
+                    </section>
+                    <section class="card">
+                        <h2>[ DONNÉES ]</h2>
+                        <ul>
+                            <li>Stockage local (No-Cloud)</li>
+                            <li>0 Traceurs publicitaires hors consentement</li>
+                            <li>Conforme RGPD & CCPA</li>
+                        </ul>
+                    </section>
                 </div>
-            </section>
+            </div>
 
-            <div class="grid">
-                <section class="card">
-                    <h2>[ SYSTÈME DE SCAN ]</h2>
-                    <ul>
-                        <li><strong>Identification IA :</strong> Reconnaissance instantanée du modèle et de la compagnie.</li>
-                        <li><strong>Journal de Bord :</strong> Archivez vos captures avec date, lieu et altitude.</li>
-                        <li><strong>Rareté :</strong> Débloquez des badges pour les modèles rares (A380, Beluga, Concorde).</li>
-                    </ul>
+            <div class="lang-en hidden">
+                <section class="hero">
+                    <h1>Identify.<br>Collect.</h1>
+                    <p>The ultimate Pokédex for aviation enthusiasts. Real-time data, zero compromise.</p>
+                    <a href="mailto:contact@scan-horizon.com" class="btn">Alpha Access 2026</a>
                 </section>
-
-                <section class="card">
-                    <h2>[ CONFIDENTIALITÉ ]</h2>
-                    <ul>
-                        <li><strong>No-Cloud :</strong> Vos données de scan restent sur votre appareil.</li>
-                        <li><strong>Anonymat :</strong> Aucune géolocalisation partagée sans votre accord.</li>
-                        <li><strong>Publicité :</strong> 0 traqueur, 100% passion.</li>
-                    </ul>
-                </section>
+                <div class="grid">
+                    <section class="card">
+                        <h2>[ SYSTEM ]</h2>
+                        <ul>
+                            <li>Visual Recognition AI</li>
+                            <li>Real-time Database</li>
+                            <li>Rarity Badges (A380, Concorde)</li>
+                        </ul>
+                    </section>
+                    <section class="card">
+                        <h2>[ DATA ]</h2>
+                        <ul>
+                            <li>Local Storage (No-Cloud)</li>
+                            <li>0 Ad-trackers without consent</li>
+                            <li>GDPR & CCPA Compliant</li>
+                        </ul>
+                    </section>
+                </div>
             </div>
         </div>
 
-        <div id="en-content" class="lang-content">
-            <section class="hero">
-                <h1>Identify.<br>Collect.</h1>
-                <p>Point your camera at the sky and capture live aircraft metadata. The ultimate Pokédex for civil and military aviation enthusiasts.</p>
-                <div class="btn-group">
-                    <a href="mailto:contact@scan-horizon.com" class="btn btn-main">Alpha Access 2026</a>
+        <div id="view-privacy" class="legal-container">
+            <div class="legal-header">
+                <span class="legal-title lang-fr">POLITIQUE DE CONFIDENTIALITÉ</span>
+                <span class="legal-title lang-en hidden">PRIVACY POLICY</span>
+                <div class="close-btn" onclick="navigate('home')">X</div>
+            </div>
+            <div class="legal-content">
+                <div class="lang-fr">
+                    <h3>1. Collecte des données</h3>
+                    <p>Nous collectons les données suivantes nécessaires au fonctionnement de l'application : identifiants techniques, données de crash (Sentry), et identifiants publicitaires (si consentement donné).</p>
+                    <h3>2. Services Tiers</h3>
+                    <p>Nous utilisons Google AdMob (Publicité) et Google Analytics. Ces services peuvent transférer des données hors de l'UE (USA). Vous pouvez retirer votre consentement à tout moment dans les paramètres.</p>
+                    <h3>3. Droits</h3>
+                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données via les paramètres de l'application.</p>
                 </div>
-            </section>
-
-            <div class="grid">
-                <section class="card">
-                    <h2>[ SCANNING SYSTEM ]</h2>
-                    <ul>
-                        <li><strong>AI ID:</strong> Instant model and livery recognition.</li>
-                        <li><strong>Logbook:</strong> Save captures with date, GPS coordinates, and altitude.</li>
-                        <li><strong>Rarity:</strong> Unlock badges for spotting rare aircraft (A380, Beluga, etc.).</li>
-                    </ul>
-                </section>
-
-                <section class="card">
-                    <h2>[ DATA PRIVACY ]</h2>
-                    <ul>
-                        <li><strong>No-Cloud:</strong> All scan data stays on your local device.</li>
-                        <li><strong>Anonymity:</strong> No location sharing without explicit consent.</li>
-                        <li><strong>Ads:</strong> Zero trackers, 100% passion-driven.</li>
-                    </ul>
-                </section>
+                <div class="lang-en hidden">
+                    <h3>1. Data Collection</h3>
+                    <p>We collect data necessary for app functionality: technical IDs, crash reports (Sentry), and advertising IDs (if consent is given).</p>
+                    <h3>2. Third Party Services</h3>
+                    <p>We use Google AdMob (Ads) and Google Analytics. These services may transfer data outside the EU (USA). You can withdraw consent at any time in Settings.</p>
+                    <h3>3. Your Rights</h3>
+                    <p>Under GDPR/CCPA, you have the right to access, correct, and delete your data via the app settings.</p>
+                </div>
             </div>
         </div>
+
+        <div id="view-terms" class="legal-container">
+            <div class="legal-header">
+                <span class="legal-title lang-fr">CONDITIONS D'UTILISATION (CGU)</span>
+                <span class="legal-title lang-en hidden">TERMS OF USE</span>
+                <div class="close-btn" onclick="navigate('home')">X</div>
+            </div>
+            <div class="legal-content">
+                <div class="lang-fr">
+                    <p>L'utilisation de ScanHorizon implique l'acceptation pleine et entière des présentes conditions.</p>
+                    <h3>Propriété Intellectuelle</h3>
+                    <p>Le code, le design et la base de données sont la propriété exclusive de l'éditeur.</p>
+                </div>
+                <div class="lang-en hidden">
+                    <p>Use of ScanHorizon implies full acceptance of these terms.</p>
+                    <h3>Intellectual Property</h3>
+                    <p>Code, design, and databases are the exclusive property of the publisher.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-sales" class="legal-container">
+            <div class="legal-header">
+                <span class="legal-title lang-fr">CONDITIONS DE VENTE (CGV)</span>
+                <span class="legal-title lang-en hidden">TERMS OF SALE</span>
+                <div class="close-btn" onclick="navigate('home')">X</div>
+            </div>
+            <div class="legal-content">
+                <div class="lang-fr">
+                    <h3>Achats In-App</h3>
+                    <p>Les abonnements et achats sont gérés par les plateformes (Apple/Google). Le paiement est immédiat.</p>
+                    <h3>Droit de Rétractation</h3>
+                    <p>En validant l'achat de contenu numérique, vous acceptez l'exécution immédiate du contrat et renoncez expressément à votre droit de rétractation de 14 jours.</p>
+                </div>
+                <div class="lang-en hidden">
+                    <h3>In-App Purchases</h3>
+                    <p>Subscriptions and purchases are handled by the platforms (Apple/Google).</p>
+                    <h3>Right of Withdrawal</h3>
+                    <p>By purchasing digital content, you agree to immediate performance of the contract and waive your right of withdrawal.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-legal" class="legal-container">
+            <div class="legal-header">
+                <span class="legal-title lang-fr">MENTIONS LÉGALES</span>
+                <span class="legal-title lang-en hidden">LEGAL NOTICE</span>
+                <div class="close-btn" onclick="navigate('home')">X</div>
+            </div>
+            <div class="legal-content">
+                <div class="lang-fr">
+                    <h3>Éditeur</h3>
+                    <p>ScanHorizon SAS (ou ton nom)<br>Adresse : [Ton Adresse]<br>Contact : contact@scan-horizon.com</p>
+                    <h3>Hébergeur des données</h3>
+                    <p>Google Cloud Platform / Firebase<br>Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+                </div>
+                <div class="lang-en hidden">
+                    <h3>Publisher</h3>
+                    <p>ScanHorizon Inc.<br>Address: [Your Address]<br>Contact: contact@scan-horizon.com</p>
+                    <h3>Data Host</h3>
+                    <p>Google Cloud Platform / Firebase<br>Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer>
-        <p>SCANHORIZON TERMINAL v1.0.4 — © 2026 // NO PERSONAL DATA COLLECTED</p>
+        <nav class="footer-links">
+            <a onclick="navigate('privacy')">
+                <span class="lang-fr">Confidentialité</span><span class="lang-en hidden">Privacy</span>
+            </a>
+            <a onclick="navigate('terms')">
+                <span class="lang-fr">CGU</span><span class="lang-en hidden">Terms</span>
+            </a>
+            <a onclick="navigate('sales')">
+                <span class="lang-fr">CGV (Vente)</span><span class="lang-en hidden">Sales Policy</span>
+            </a>
+            <a onclick="navigate('legal')">
+                <span class="lang-fr">Mentions Légales</span><span class="lang-en hidden">Legal Notice</span>
+            </a>
+        </nav>
+        <p class="copyright">SCANHORIZON TERMINAL v1.0.4 — © 2026</p>
     </footer>
 
     <script>
+        // État global
+        let state = {
+            lang: 'fr', // 'fr' ou 'en'
+            view: 'home' // 'home', 'privacy', 'terms', 'sales', 'legal'
+        };
+
+        // Fonction pour changer la langue
         function setLanguage(lang) {
-            document.querySelectorAll('.lang-content').forEach(el => el.style.display = 'none');
-            document.getElementById(`${lang}-content`).style.display = 'block';
-            document.getElementById('btn-fr').classList.remove('active');
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById(`btn-${lang}`).classList.add('active');
+            state.lang = lang;
+            
+            // Mise à jour des boutons du header
+            document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            
+            // Mise à jour de l'attribut HTML pour l'accessibilité
             document.documentElement.setAttribute('lang', lang);
+
+            updateRender();
         }
 
+        // Fonction de navigation
+        function navigate(viewId) {
+            state.view = viewId;
+            updateRender();
+            // Scroll en haut si on change de vue
+            window.scrollTo(0,0);
+        }
+
+        // Fonction principale de rendu
+        function updateRender() {
+            // 1. Gérer la visibilité des textes (FR vs EN)
+            const frElements = document.querySelectorAll('.lang-fr');
+            const enElements = document.querySelectorAll('.lang-en');
+
+            frElements.forEach(el => {
+                if(state.lang === 'fr') el.classList.remove('hidden');
+                else el.classList.add('hidden');
+            });
+
+            enElements.forEach(el => {
+                if(state.lang === 'en') el.classList.remove('hidden');
+                else el.classList.add('hidden');
+            });
+
+            // 2. Gérer la vue active (Home vs Docs)
+            // On cache tout d'abord
+            document.getElementById('view-home').style.display = 'none';
+            document.querySelectorAll('.legal-container').forEach(el => el.classList.remove('active'));
+
+            // On affiche la bonne vue
+            if (state.view === 'home') {
+                document.getElementById('view-home').style.display = 'block';
+            } else {
+                const activeDoc = document.getElementById(`view-${state.view}`);
+                if(activeDoc) {
+                    activeDoc.classList.add('active');
+                }
+            }
+        }
+
+        // Initialisation automatique
         document.addEventListener('DOMContentLoaded', () => {
             const userLang = navigator.language || navigator.userLanguage;
             setLanguage(userLang.startsWith('en') ? 'en' : 'fr');
