@@ -145,13 +145,15 @@
         .close-btn:hover { background: var(--alert-red); color: white; }
 
         .legal-content h3 { color: var(--sky-blue); margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase; font-size: 1.1rem; border-bottom: 1px solid rgba(0, 210, 255, 0.1); padding-bottom: 0.5rem; }
+        .legal-content h4 { color: var(--text); margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1rem; font-weight: bold; }
         .legal-content p { margin-bottom: 1rem; line-height: 1.6; color: var(--text-dim); text-align: justify; font-size: 0.95rem; }
         .legal-content ul { margin-left: 2rem; margin-bottom: 1rem; color: var(--text-dim); }
         .legal-content li { margin-bottom: 0.5rem; }
         .legal-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; color: var(--text-dim); font-size: 0.9rem; }
-        .legal-content th, .legal-content td { border: 1px solid var(--border); padding: 8px; text-align: left; }
+        .legal-content th, .legal-content td { border: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top;}
         .legal-content th { background: rgba(0, 210, 255, 0.1); color: var(--sky-blue); }
         .legal-content strong { color: var(--text); }
+        .legal-content .warning-box { border: 1px solid var(--alert-red); padding: 1rem; color: var(--alert-red); margin: 1rem 0; font-weight: bold;}
 
         /* --- BUTTONS --- */
         .cyber-btn-submit {
@@ -272,61 +274,241 @@
             </div>
             <div class="legal-content">
                 <div class="lang-fr">
-                    <p><strong>Version : 1.1 | Date d'entrée en vigueur : 01 Février 2026</strong></p>
-                    <p>La présente Politique de Confidentialité vise à informer les utilisateurs de l'application mobile <strong>ScanHorizon</strong> des modalités de collecte, de traitement et de protection de leurs données personnelles. L'Éditeur s'engage à respecter scrupuleusement le Règlement (UE) 2016/679 (RGPD).</p>
+                    <p><strong>POLITIQUE DE CONFIDENTIALITÉ ET DE PROTECTION DES DONNÉES</strong></p>
+                    <p>Version : 1.1<br>Date d'entrée en vigueur : 01 Février 2026</p>
+                    
+                    <h3>PRÉAMBULE</h3>
+                    <p>La présente Politique de Confidentialité (ci-après la "Politique") vise à informer les utilisateurs (ci-après les "Utilisateurs") de l'application mobile ScanHorizon (ci-après l'"Application"), éditée par la société SAS SCAN HORIZON (ci-après l'"Éditeur"), des modalités de collecte, de traitement et de protection de leurs données personnelles. L'Éditeur s'engage à respecter scrupuleusement le Règlement (UE) 2016/679 (RGPD) ainsi que la Loi Informatique et Libertés du 6 janvier 1978 modifiée.</p>
 
-                    <h3>1. DONNÉES COLLECTÉES (PRIVACY BY DESIGN)</h3>
-                    <p>Nous collectons uniquement les données strictement nécessaires au bon fonctionnement du service.</p>
+                    <h3>ARTICLE 1. DÉFINITIONS</h3>
                     <ul>
-                        <li><strong>Géolocalisation (GPS) :</strong> Latitude, longitude, altitude, vitesse. Collectées en temps réel pour le radar. Non historisées.</li>
-                        <li><strong>Données techniques :</strong> Modèle du smartphone, OS, langue, IP, UUID technique (pour la gestion des crashs et l'analyse).</li>
-                        <li><strong>Réalité Augmentée :</strong> Le traitement d'image est effectué <strong>localement</strong> sur votre appareil. Aucun flux vidéo n'est envoyé sur nos serveurs.</li>
-                        <li><strong>Données commerciales :</strong> Historique des achats. L'Éditeur n'a jamais accès à vos coordonnées bancaires (gérées par Apple/Google).</li>
+                        <li><strong>Donnée Personnelle :</strong> Toute information identifiant directement ou indirectement une personne physique (ex: localisation, identifiant publicitaire, IP).</li>
+                        <li><strong>Traitement :</strong> Toute opération sur ces données (collecte, stockage, suppression).</li>
+                        <li><strong>Responsable de Traitement :</strong> La société SAS SCAN HORIZON.</li>
                     </ul>
 
-                    <h3>2. PROTECTION DE L'ENFANCE (-15 ANS)</h3>
-                    <p>L'Application est strictement interdite aux moins de 15 ans. L'Éditeur ne collecte pas sciemment de données auprès de mineurs de moins de 15 ans. Si un parent découvre que son enfant a fourni des données, il peut nous contacter à admin@scan-horizon.com pour suppression immédiate.</p>
-
-                    <h3>3. DESTINATAIRES ET TRANSFERTS</h3>
-                    <p>Vos données ne sont ni vendues ni louées. Elles sont transmises uniquement à nos sous-traitants techniques :</p>
+                    <h3>ARTICLE 2. DONNÉES COLLECTÉES</h3>
+                    <p>Nous collectons uniquement les données strictement nécessaires au bon fonctionnement du service ("Privacy by Design").</p>
+                    
+                    <h4>2.1. Données techniques et de Géolocalisation</h4>
                     <ul>
-                        <li><strong>Google Cloud / Firebase (Irlande) :</strong> Hébergement sécurisé.</li>
-                        <li><strong>PlaneFinder (UK) :</strong> API aéronautique (GPS anonymisé).</li>
-                        <li><strong>RevenueCat (USA) :</strong> Gestion des abonnements.</li>
+                        <li><strong>Géolocalisation (GPS) :</strong> Latitude, longitude, altitude, vitesse. Ces données sont collectées en temps réel lorsque l'Application est active pour identifier les aéronefs via les API aéronautiques.</li>
+                        <li><strong>Données techniques :</strong> Modèle du smartphone, OS (iOS/Android), langue, fuseau horaire, adresse IP.</li>
+                        <li><strong>Identifiants techniques :</strong> UUID généré à l'installation pour la gestion technique.</li>
                     </ul>
-                    <p>Les transferts hors UE sont encadrés par les Clauses Contractuelles Types (CCT) ou le Data Privacy Framework (DPF).</p>
 
-                    <h3>4. VOS DROITS</h3>
-                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité. Vous pouvez exercer ces droits directement dans l'application ou via le formulaire de suppression ci-dessous.</p>
+                    <h4>2.2. Données liées à la Réalité Augmentée</h4>
+                    <ul>
+                        <li><strong>Flux Caméra :</strong> L'Application accède à la caméra arrière pour superposer les informations de vol.</li>
+                        <li><strong>Traitement :</strong> Le traitement d'image est effectué <strong>localement</strong> sur votre appareil. Aucune image n'est transmise à nos serveurs, sauf action manuelle de votre part (ex: envoi d'un rapport de bug avec capture d'écran).</li>
+                    </ul>
+
+                    <h4>2.3. Données commerciales (Achats In-App)</h4>
+                    <ul>
+                        <li>Historique des achats et statut de l'abonnement (Free/Pro).</li>
+                        <li><strong>Note importante :</strong> L'Éditeur n'a jamais accès à vos coordonnées bancaires. Les transactions sont sécurisées et gérées exclusivement par Apple (App Store) et Google (Play Store).</li>
+                    </ul>
+
+                    <h4>2.4. Traceurs Publicitaires (Sous réserve de consentement)</h4>
+                    <ul>
+                        <li>Identifiants publicitaires mobiles : IDFA (iOS) et GAID (Android).</li>
+                        <li>Données de navigation pour la personnalisation des publicités (via AdMob).</li>
+                    </ul>
+
+                    <h4>2.5. PROTECTION DE L'ENFANCE (Mineurs de -15 ans)</h4>
+                    <p>Conformément à nos CGU, l'Application est interdite aux moins de 15 ans. L'Éditeur ne collecte pas sciemment de données auprès de mineurs de moins de 15 ans. Si un parent ou tuteur découvre que son enfant a fourni des données sans autorisation, il peut nous contacter à admin@scan-horizon.com pour exiger la suppression immédiate de ces informations.</p>
+
+                    <h3>ARTICLE 3. FINALITÉS ET BASES LÉGALES</h3>
+                    <table>
+                        <tr>
+                            <th>Finalité du traitement</th>
+                            <th>Base Légale (RGPD)</th>
+                        </tr>
+                        <tr>
+                            <td>Fonctionnement du Radar & Identification</td>
+                            <td>Exécution du contrat (Le service ne peut exister sans GPS).</td>
+                        </tr>
+                        <tr>
+                            <td>Gestion des Abonnements Premium</td>
+                            <td>Exécution du contrat (Délivrance du service payé).</td>
+                        </tr>
+                        <tr>
+                            <td>Maintenance & Détection de Crashs</td>
+                            <td>Intérêt Légitime de l'Éditeur à améliorer la stabilité de l'App.</td>
+                        </tr>
+                        <tr>
+                            <td>Publicité Ciblée & Statistiques</td>
+                            <td>Consentement explicite de l'Utilisateur (recueilli via CMP).</td>
+                        </tr>
+                        <tr>
+                            <td>Obligations Légales</td>
+                            <td>Loi (Conservation des logs techniques LCEN).</td>
+                        </tr>
+                    </table>
+
+                    <h3>ARTICLE 4. DESTINATAIRES DES DONNÉES</h3>
+                    <p>Vos données ne sont <strong>ni vendues ni louées</strong>. Elles sont transmises uniquement à nos sous-traitants techniques pour l'exécution du service :</p>
+                    <ul>
+                        <li><strong>Google Cloud / Firebase (Irlande) :</strong> Hébergement sécurisé et authentification.</li>
+                        <li><strong>PlaneFinder (Royaume-Uni) :</strong> API aéronautique (envoi de coordonnées GPS anonymisées).</li>
+                        <li><strong>RevenueCat (USA) :</strong> Gestion des abonnements mobiles.</li>
+                        <li><strong>Google AdMob (USA) :</strong> Régie publicitaire (uniquement si vous avez accepté le traçage).</li>
+                    </ul>
+
+                    <h3>ARTICLE 5. TRANSFERTS HORS UE</h3>
+                    <p>Certaines données techniques sont traitées par des prestataires situés aux États-Unis (Google, RevenueCat). L'Éditeur garantit que ces transferts sont encadrés par les Clauses Contractuelles Types (CCT) de la Commission Européenne ou par l'adhésion des prestataires au Data Privacy Framework (DPF), assurant un niveau de protection adéquat.</p>
+
+                    <h3>ARTICLE 6. COOKIES ET SDK MOBILES</h3>
+                    <p>L'Application n'utilise pas de "cookies" web classiques, mais des SDK (Software Development Kits) et des identifiants mobiles. L'utilisation des traceurs publicitaires et analytiques est soumise à votre consentement préalable, recueilli lors du premier lancement via notre plateforme de gestion des consentements (CMP). Vous pouvez modifier ce choix à tout moment dans les paramètres de l'Application ("Gérer mes choix").</p>
+
+                    <h3>ARTICLE 7. DURÉE DE CONSERVATION</h3>
+                    <ul>
+                        <li><strong>Géolocalisation :</strong> Aucune historisation. Donnée écrasée en temps réel (cache max 24h).</li>
+                        <li><strong>Données de Compte & Achats :</strong> Durée de l'utilisation du service + 5 ans (prescription légale).</li>
+                        <li><strong>Données publicitaires :</strong> 13 mois maximum après consentement.</li>
+                        <li><strong>Comptes inactifs :</strong> Suppression automatique après 24 mois sans connexion.</li>
+                    </ul>
+
+                    <h3>ARTICLE 8. SÉCURITÉ ET NOTIFICATION DE FAILLE</h3>
+                    <p>Nous mettons en œuvre des mesures de sécurité avancées (chiffrement TLS, accès restreints). Conformément à l'article 33 du RGPD, en cas de violation de données présentant un risque pour vos droits, l'Éditeur s'engage à notifier la CNIL dans les 72 heures et, si nécessaire, à informer les utilisateurs concernés.</p>
+
+                    <h3>ARTICLE 9. VOS DROITS ET SUPPRESSION DE COMPTE</h3>
+                    <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de portabilité et d'opposition.</p>
+                    <p><strong>Comment supprimer vos données ?</strong></p>
+                    <ul>
+                        <li><strong>Dans l'Application :</strong> Via le menu "Paramètres > Confidentialité > Supprimer mon compte".</li>
+                        <li><strong>Sur le Web (Sans l'app) :</strong> Via notre formulaire de suppression dédié accessible sur cette page.</li>
+                        <li><strong>Par Email :</strong> En écrivant à admin@scan-horizon.com.</li>
+                    </ul>
+                    <p>Vous avez également le droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
+
+                    <h3>ARTICLE 10. DROIT CALIFORNIEN (CCPA)</h3>
+                    <p>Pour nos utilisateurs résidant en Californie : Nous ne vendons pas vos données personnelles ("Do Not Sell My Personal Information"). Vous bénéficiez des mêmes droits d'accès et de suppression que ceux décrits à l'Article 9.</p>
+
+                    <h3>ARTICLE 11. CONTACT</h3>
+                    <p>Pour toute question relative à cette politique, contactez notre Délégué à la Protection des Données (DPO) à :<br>
+                    SAS SCAN HORIZON<br>
+                    10 impasse du Pegan, 01210 Ferney Voltaire, France<br>
+                    Email : admin@scan-horizon.com</p>
                 </div>
 
                 <div class="lang-en hidden">
-                    <p><strong>Version: 1.1 | Effective Date: February 01, 2026</strong></p>
-                    <p>This Privacy Policy aims to inform users of the <strong>ScanHorizon</strong> mobile application about how their personal data is collected, processed, and protected. The Publisher is committed to strictly complying with GDPR.</p>
+                    <p><strong>PRIVACY AND DATA PROTECTION POLICY</strong></p>
+                    <p>Version: 1.1<br>Effective Date: February 01, 2026</p>
+                    
+                    <h3>PREAMBLE</h3>
+                    <p>This Privacy Policy (hereinafter the "Policy") aims to inform users (hereinafter "Users") of the mobile application ScanHorizon (hereinafter the "Application"), published by SAS SCAN HORIZON (hereinafter the "Publisher"), about how their personal data is collected, processed, and protected. The Publisher is committed to strictly complying with Regulation (EU) 2016/679 (GDPR) and the Data Protection Act.</p>
 
-                    <h3>1. COLLECTED DATA (PRIVACY BY DESIGN)</h3>
-                    <p>We only collect data strictly necessary for the service.</p>
+                    <h3>ARTICLE 1. DEFINITIONS</h3>
                     <ul>
-                        <li><strong>Geolocation (GPS):</strong> Latitude, longitude, altitude, speed. Collected in real-time for radar. Not stored historically.</li>
-                        <li><strong>Technical Data:</strong> Smartphone model, OS, language, IP, technical UUID (for crash handling and analytics).</li>
-                        <li><strong>Augmented Reality:</strong> Image processing is performed <strong>locally</strong> on your device. No video feed is sent to our servers.</li>
-                        <li><strong>Commercial Data:</strong> Purchase history. The Publisher never has access to your banking details (handled by Apple/Google).</li>
+                        <li><strong>Personal Data:</strong> Any information identifying a natural person directly or indirectly (e.g., location, ad ID, IP).</li>
+                        <li><strong>Processing:</strong> Any operation on this data (collection, storage, deletion).</li>
+                        <li><strong>Data Controller:</strong> The company SAS SCAN HORIZON.</li>
                     </ul>
 
-                    <h3>2. CHILD PROTECTION (UNDER 15)</h3>
-                    <p>The Application is strictly prohibited for users under 15. The Publisher does not knowingly collect data from minors under 15. If a parent discovers their child has provided data, contact admin@scan-horizon.com for immediate deletion.</p>
-
-                    <h3>3. RECIPIENTS AND TRANSFERS</h3>
-                    <p>Your data is neither sold nor rented. It is transmitted only to our technical subcontractors:</p>
+                    <h3>ARTICLE 2. COLLECTED DATA</h3>
+                    <p>We only collect data strictly necessary for the proper functioning of the service ("Privacy by Design").</p>
+                    
+                    <h4>2.1. Technical and Geolocation Data</h4>
                     <ul>
-                        <li><strong>Google Cloud / Firebase (Ireland):</strong> Secure hosting.</li>
-                        <li><strong>PlaneFinder (UK):</strong> Aeronautical API (Anonymized GPS).</li>
-                        <li><strong>RevenueCat (USA):</strong> Subscription management.</li>
+                        <li><strong>Geolocation (GPS):</strong> Latitude, longitude, altitude, speed. Collected in real-time when the App is active to identify aircraft via aeronautical APIs.</li>
+                        <li><strong>Technical Data:</strong> Smartphone model, OS (iOS/Android), language, timezone, IP address.</li>
+                        <li><strong>Technical IDs:</strong> UUID generated upon installation for technical management.</li>
                     </ul>
-                    <p>Transfers outside the EU are covered by Standard Contractual Clauses (SCC) or the Data Privacy Framework (DPF).</p>
 
-                    <h3>4. YOUR RIGHTS</h3>
-                    <p>Under GDPR, you have the right to access, rectify, erase, and port your data. You can exercise these rights directly in the app or via the deletion form below.</p>
+                    <h4>2.2. Augmented Reality Data</h4>
+                    <ul>
+                        <li><strong>Camera Feed:</strong> The App accesses the rear camera to overlay flight information.</li>
+                        <li><strong>Processing:</strong> Image processing is performed <strong>locally</strong> on your device. No images are transmitted to our servers, except via manual action by you (e.g., bug report with screenshot).</li>
+                    </ul>
+
+                    <h4>2.3. Commercial Data (In-App Purchases)</h4>
+                    <ul>
+                        <li>Purchase history and subscription status (Free/Pro).</li>
+                        <li><strong>Important Note:</strong> The Publisher never has access to your banking details. Transactions are secured and managed exclusively by Apple (App Store) and Google (Play Store).</li>
+                    </ul>
+
+                    <h4>2.4. Advertising Trackers (Subject to Consent)</h4>
+                    <ul>
+                        <li>Mobile advertising IDs: IDFA (iOS) and GAID (Android).</li>
+                        <li>Navigation data for ad personalization (via AdMob).</li>
+                    </ul>
+
+                    <h4>2.5. CHILD PROTECTION (Minors under 15)</h4>
+                    <p>In accordance with our Terms, the App is prohibited for those under 15. The Publisher does not knowingly collect data from minors under 15. If a parent or guardian discovers their child has provided data without authorization, they may contact us at admin@scan-horizon.com to request immediate deletion.</p>
+
+                    <h3>ARTICLE 3. PURPOSES AND LEGAL BASES</h3>
+                    <table>
+                        <tr>
+                            <th>Purpose of Processing</th>
+                            <th>Legal Basis (GDPR)</th>
+                        </tr>
+                        <tr>
+                            <td>Radar Operation & Identification</td>
+                            <td>Contract Execution (Service cannot exist without GPS).</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Subscription Management</td>
+                            <td>Contract Execution (Delivery of paid service).</td>
+                        </tr>
+                        <tr>
+                            <td>Maintenance & Crash Detection</td>
+                            <td>Legitimate Interest of the Publisher to improve App stability.</td>
+                        </tr>
+                        <tr>
+                            <td>Targeted Advertising & Statistics</td>
+                            <td>Explicit Consent of the User (collected via CMP).</td>
+                        </tr>
+                        <tr>
+                            <td>Legal Obligations</td>
+                            <td>Law (Retention of LCEN technical logs).</td>
+                        </tr>
+                    </table>
+
+                    <h3>ARTICLE 4. DATA RECIPIENTS</h3>
+                    <p>Your data is <strong>neither sold nor rented</strong>. It is transmitted only to our technical subcontractors for service execution:</p>
+                    <ul>
+                        <li><strong>Google Cloud / Firebase (Ireland):</strong> Secure hosting and authentication.</li>
+                        <li><strong>PlaneFinder (UK):</strong> Aeronautical API (sending anonymized GPS coordinates).</li>
+                        <li><strong>RevenueCat (USA):</strong> Mobile subscription management.</li>
+                        <li><strong>Google AdMob (USA):</strong> Advertising network (only if you accepted tracking).</li>
+                    </ul>
+
+                    <h3>ARTICLE 5. TRANSFERS OUTSIDE EU</h3>
+                    <p>Some technical data is processed by providers located in the USA (Google, RevenueCat). The Publisher guarantees these transfers are covered by the European Commission's Standard Contractual Clauses (SCC) or the providers' adherence to the Data Privacy Framework (DPF), ensuring an adequate level of protection.</p>
+
+                    <h3>ARTICLE 6. COOKIES AND MOBILE SDKS</h3>
+                    <p>The App does not use classic web "cookies" but SDKs (Software Development Kits) and mobile identifiers. The use of advertising and analytical trackers is subject to your prior consent, collected at first launch via our Consent Management Platform (CMP). You can modify this choice at any time in App settings.</p>
+
+                    <h3>ARTICLE 7. RETENTION PERIOD</h3>
+                    <ul>
+                        <li><strong>Geolocation:</strong> No history stored. Data overwritten in real-time (max cache 24h).</li>
+                        <li><strong>Account & Purchase Data:</strong> Duration of service use + 5 years (legal prescription).</li>
+                        <li><strong>Advertising Data:</strong> 13 months maximum after consent.</li>
+                        <li><strong>Inactive Accounts:</strong> Automatic deletion after 24 months without connection.</li>
+                    </ul>
+
+                    <h3>ARTICLE 8. SECURITY AND BREACH NOTIFICATION</h3>
+                    <p>We implement advanced security measures (TLS encryption, restricted access). In accordance with GDPR Article 33, in case of a data breach presenting a risk to your rights, the Publisher commits to notifying the CNIL within 72 hours and, if necessary, informing concerned users.</p>
+
+                    <h3>ARTICLE 9. YOUR RIGHTS AND ACCOUNT DELETION</h3>
+                    <p>You have the right to access, rectify, erase, port, and object to your data.</p>
+                    <p><strong>How to delete your data?</strong></p>
+                    <ul>
+                        <li><strong>In the App:</strong> Via "Settings > Privacy > Delete my account".</li>
+                        <li><strong>On the Web (No app):</strong> Via our dedicated deletion form accessible on this page.</li>
+                        <li><strong>By Email:</strong> Write to admin@scan-horizon.com.</li>
+                    </ul>
+                    <p>You also have the right to lodge a complaint with your local data protection authority.</p>
+
+                    <h3>ARTICLE 10. CALIFORNIA RIGHTS (CCPA)</h3>
+                    <p>For California residents: We do not sell your personal data ("Do Not Sell My Personal Information"). You benefit from the same access and deletion rights described in Article 9.</p>
+
+                    <h3>ARTICLE 11. CONTACT</h3>
+                    <p>For any questions regarding this policy, contact our Data Protection Officer (DPO) at:<br>
+                    SAS SCAN HORIZON<br>
+                    10 impasse du Pegan, 01210 Ferney Voltaire, France<br>
+                    Email: admin@scan-horizon.com</p>
                 </div>
             </div>
         </div>
@@ -339,43 +521,134 @@
             </div>
             <div class="legal-content">
                 <div class="lang-fr">
-                    <p><strong>Dernière mise à jour : 01 Février 2026</strong></p>
-                    <p>L'INSTALLATION DE L'APPLICATION VAUT ACCEPTATION SANS RÉSERVE DES PRÉSENTES CONDITIONS.</p>
+                    <p><strong>CONDITIONS GÉNÉRALES D'UTILISATION ET DE VENTE</strong></p>
+                    <p>Dernière mise à jour : 01 Février 2026</p>
 
-                    <h3>1. ACCÈS ET ÂGE</h3>
-                    <p>L'utilisation de l'Application est <strong>strictement interdite aux moins de 15 ans</strong>. Tout compte créé par un moins de 15 ans sera supprimé sans préavis. Les mineurs de 15 à 18 ans doivent avoir l'accord de leurs parents.</p>
+                    <h3>PRÉAMBULE ET ACCEPTATION</h3>
+                    <p>Les présentes Conditions Générales (ci-après le "Contrat") régissent l'utilisation de l'application ScanHorizon (ci-après l'"Application") éditée par la SAS SCAN HORIZON (ci-après l'"Éditeur").</p>
+                    <p>L'INSTALLATION DE L'APPLICATION VAUT ACCEPTATION SANS RÉSERVE. En téléchargeant, installant ou utilisant l'Application, l'Utilisateur confirme avoir lu, compris et accepté l'intégralité de ce Contrat. Si vous refusez tout ou partie de ces conditions, vous devez désinstaller l'Application immédiatement.</p>
 
-                    <h3>2. SÉCURITÉ PHYSIQUE (VIGILANCE)</h3>
-                    <p>L'Utilisateur reconnaît utiliser l'Application dans le monde réel. Il s'engage à rester vigilant à son environnement (voitures, obstacles) et à ne jamais utiliser l'Application en conduisant. L'Éditeur décline toute responsabilité en cas d'accident.</p>
+                    <h3>TITRE I : CONDITIONS D'UTILISATION (CGU)</h3>
+                    
+                    <h3>ARTICLE 1. ACCÈS, CONDITIONS D'ÂGE ET ÉQUIPEMENT</h3>
+                    <h4>1.1. Majorité Numérique (Interdiction stricte -15 ans)</h4>
+                    <p>Conformément à l'article 45 de la loi Informatique et Libertés, l'utilisation de l'Application est <strong>strictement interdite aux enfants de moins de 15 ans</strong>. En dessous de cet âge, la collecte de données personnelles n'est pas autorisée sans un mécanisme complexe de vérification parentale que l'Application ne met pas en œuvre. Tout compte créé par un utilisateur de moins de 15 ans sera supprimé sans préavis.</p>
+                    <h4>1.2. Mineurs (15 à 18 ans)</h4>
+                    <p>Les mineurs âgés de 15 à 18 ans sont autorisés à utiliser l'Application uniquement sous la surveillance et avec l'accord préalable de leurs parents ou tuteurs légaux. Le titulaire de l'autorité parentale est garant du respect des présentes CGU par le mineur.</p>
+                    <p><strong>Achats :</strong> L'Éditeur ne procédera à aucun remboursement pour des achats réalisés par un mineur, ces achats étant réputés avoir été effectués avec l'accord tacite du titulaire du compte bancaire.</p>
+                    <h4>1.3. Équipement</h4>
+                    <p>L'Utilisateur est seul responsable de la compatibilité technique de son matériel et de ses frais de connexion.</p>
 
-                    <h3>3. LIMITATION DE RESPONSABILITÉ</h3>
-                    <p>CECI N'EST PAS UN INSTRUMENT DE NAVIGATION. Les données sont fournies à titre indicatif. Si la responsabilité de l'Éditeur devait être engagée, le montant des indemnités ne pourra excéder la somme totale payée par l'Utilisateur au cours des 12 derniers mois.</p>
+                    <div class="warning-box">
+                    <h3>ARTICLE 2. AVERTISSEMENT CRITIQUE : SÉCURITÉ PHYSIQUE</h3>
+                    <p><strong>2.1. Responsabilité de l'Utilisateur :</strong> L'Utilisateur reconnaît utiliser l'Application dans le monde réel. Il s'engage à rester vigilant à son environnement immédiat (voitures, obstacles, piétons) et à ne jamais utiliser l'Application en conduisant un véhicule.</p>
+                    <p><strong>2.2. Exclusion Totale de Responsabilité :</strong> L'Éditeur décline toute responsabilité en cas de dommages corporels, matériels ou de poursuites judiciaires résultant d'un accident, d'une intrusion ou d'une inattention de l'Utilisateur.</p>
+                    <p><strong>2.3. Plafond de responsabilité :</strong> Si la responsabilité de l'Éditeur devait être engagée par un tribunal, le montant des indemnités ne pourra en aucun cas excéder la somme totale payée par l'Utilisateur pour les services de l'Application au cours des 12 derniers mois.</p>
+                    </div>
 
-                    <h3>4. ACHATS ET RÉTRACTATION</h3>
-                    <p>Les abonnements sont gérés par les stores (Apple/Google). <strong>RENONCIATION :</strong> En validant son achat, l'Utilisateur accepte l'exécution immédiate du service et renonce expressément à son droit de rétractation de 14 jours. Aucun remboursement ne sera effectué par l'Éditeur.</p>
+                    <h3>ARTICLE 3. AVERTISSEMENT AÉRONAUTIQUE (DISCLAIMER)</h3>
+                    <p>CECI N'EST PAS UN INSTRUMENT DE NAVIGATION. Les données affichées peuvent comporter des retards ou des erreurs. Il est strictement interdit d'utiliser ScanHorizon pour le pilotage d'aéronefs ou pour toute activité liée à la sécurité aérienne.</p>
 
-                    <h3>5. MÉDIATION</h3>
-                    <p>En cas de litige non résolu, l'Utilisateur peut recourir gratuitement au médiateur de la consommation : <strong>CM2C</strong> (www.cm2c.net - 49 Rue de Ponthieu, 75008 Paris).</p>
+                    <h3>ARTICLE 4. PROPRIÉTÉ INTELLECTUELLE</h3>
+                    <p>L'ensemble de l'Application (code source, bases de données, design, sons) est la propriété exclusive de la SAS SCAN HORIZON. Interdiction de Scraping : Il est formellement interdit d'extraire la totalité ou une partie substantielle du contenu de la base de données (Art L.341-1 du CPI).</p>
+
+                    <h3>ARTICLE 5. DISPONIBILITÉ</h3>
+                    <p>L'Application est fournie "en l'état". L'Éditeur ne garantit pas une disponibilité 100%.</p>
+
+                    <h3>TITRE II : CONDITIONS GÉNÉRALES DE VENTE (CGV)</h3>
+
+                    <h3>ARTICLE 6. PRODUITS ET SERVICES PAYANTS</h3>
+                    <p>L'Application propose des achats intégrés via les stores : Abonnements "PRO" (renouvelables tacitement) et Consommables (Skins, Crédits).</p>
+
+                    <h3>ARTICLE 7. PRIX ET MODALITÉS DE PAIEMENT</h3>
+                    <p>La transaction est gérée exclusivement par la plateforme du Store (Apple ou Google). L'Éditeur ne collecte aucune donnée bancaire.</p>
+
+                    <h3>ARTICLE 8. DROIT DE RÉTRACTATION (RENONCIATION)</h3>
+                    <p>Conformément à l'article L.221-28 du Code de la Consommation, le droit de rétractation ne peut être exercé pour les contrats de fourniture d'un contenu numérique sans support matériel dont l'exécution a commencé.</p>
+                    <p><strong>EN VALIDANT SON ACHAT, L'UTILISATEUR ACCEPTE L'EXÉCUTION IMMÉDIATE DU SERVICE ET RENONCE EXPRESSÉMENT À SON DROIT DE RÉTRACTATION DE 14 JOURS.</strong> Aucun remboursement ne sera effectué par l'Éditeur.</p>
+
+                    <h3>ARTICLE 9. RÉSILIATION DE L'ABONNEMENT</h3>
+                    <p>L'Utilisateur doit résilier son abonnement via les réglages de son téléphone (Compte Apple ou Google Play). La suppression de l'Application ou du compte ScanHorizon n'arrête pas l'abonnement facturé par le Store.</p>
+
+                    <h3>ARTICLE 10. SUPPRESSION DE COMPTE</h3>
+                    <p>En cas de suppression de compte, l'Utilisateur perd définitivement l'accès à ses achats "Consommables" et à son historique, sans recours ni remboursement.</p>
+
+                    <h3>TITRE III : DISPOSITIONS FINALES</h3>
+
+                    <h3>ARTICLE 11. MODIFICATION</h3>
+                    <p>En cas de modification substantielle du contrat, l'Utilisateur sera informé au moins 30 jours avant l'entrée en vigueur.</p>
+
+                    <h3>ARTICLE 12. MÉDIATION DE LA CONSOMMATION</h3>
+                    <p>Conformément aux articles L.612-1 et suivants du Code de la consommation, en cas de litige non résolu par notre service client, l'Utilisateur peut recourir gratuitement au médiateur de la consommation :</p>
+                    <p><strong>CM2C</strong> (Centre de la Médiation de la Consommation de Conciliateurs de Justice)<br>
+                    Site internet : www.cm2c.net<br>
+                    Adresse : 49 Rue de Ponthieu, 75008 Paris.</p>
+
+                    <h3>ARTICLE 13. DROIT APPLICABLE</h3>
+                    <p>Les présentes conditions sont soumises au Droit Français.</p>
                 </div>
 
                 <div class="lang-en hidden">
-                    <p><strong>Last Update: February 01, 2026</strong></p>
-                    <p>INSTALLATION OF THE APPLICATION IMPLIES UNRESERVED ACCEPTANCE OF THESE TERMS.</p>
+                    <p><strong>TERMS OF USE AND SALE</strong></p>
+                    <p>Last update: February 01, 2026</p>
 
-                    <h3>1. ACCESS AND AGE</h3>
-                    <p>Use of the Application is <strong>strictly prohibited for those under 15</strong>. Any account created by a person under 15 will be deleted without notice. Minors aged 15 to 18 must have parental consent.</p>
+                    <h3>PREAMBLE AND ACCEPTANCE</h3>
+                    <p>These General Terms (hereinafter the "Contract") govern the use of the ScanHorizon application (hereinafter the "Application") published by SAS SCAN HORIZON (hereinafter the "Publisher").</p>
+                    <p>INSTALLATION OF THE APPLICATION IMPLIES UNRESERVED ACCEPTANCE. By downloading, installing, or using the Application, the User confirms having read, understood, and accepted this Contract in full. If you refuse any part of these terms, you must uninstall the Application immediately.</p>
 
-                    <h3>2. PHYSICAL SAFETY (VIGILANCE)</h3>
-                    <p>The User acknowledges using the App in the real world. They agree to remain vigilant of their surroundings (cars, obstacles) and never to use the App while driving. The Publisher declines all liability in case of accident.</p>
+                    <h3>TITLE I: TERMS OF USE (TOU)</h3>
+                    
+                    <h3>ARTICLE 1. ACCESS, AGE CONDITIONS AND EQUIPMENT</h3>
+                    <h4>1.1. Digital Majority (Strict Prohibition -15 years)</h4>
+                    <p>In accordance with Article 45 of the Data Protection Act, use of the Application is <strong>strictly prohibited for children under 15 years old</strong>. Below this age, data collection is not authorized without complex parental verification which the App does not implement. Any account created by a user under 15 will be deleted without notice.</p>
+                    <h4>1.2. Minors (15 to 18 years)</h4>
+                    <p>Minors aged 15 to 18 are authorized to use the Application only under the supervision and with the prior agreement of their parents or legal guardians. The holder of parental authority is liable for the minor's compliance with these TOU.</p>
+                    <p><strong>Purchases:</strong> The Publisher will not issue any refunds for purchases made by a minor; such purchases are deemed to have been made with the tacit agreement of the bank account holder.</p>
 
-                    <h3>3. LIMITATION OF LIABILITY</h3>
-                    <p>THIS IS NOT A NAVIGATION INSTRUMENT. Data is for entertainment only. If the Publisher is held liable, compensation shall not exceed the total amount paid by the User over the last 12 months.</p>
+                    <div class="warning-box">
+                    <h3>ARTICLE 2. CRITICAL WARNING: PHYSICAL SAFETY</h3>
+                    <p><strong>2.1. User Responsibility:</strong> The User acknowledges using the Application in the real world. They agree to remain vigilant of their immediate surroundings (cars, obstacles, pedestrians) and never to use the Application while driving.</p>
+                    <p><strong>2.2. Total Exclusion of Liability:</strong> The Publisher declines all liability in case of bodily injury, property damage, or legal proceedings resulting from an accident, trespassing, or inattention by the User.</p>
+                    <p><strong>2.3. Liability Cap:</strong> If the Publisher is held liable by a court, compensation shall not exceed the total sum paid by the User for the Application's services over the last 12 months.</p>
+                    </div>
 
-                    <h3>4. PURCHASES AND WITHDRAWAL</h3>
-                    <p>Subscriptions are managed by the stores (Apple/Google). <strong>WAIVER:</strong> By validating the purchase, the User accepts immediate execution of the service and expressly waives their 14-day right of withdrawal. No refunds will be issued by the Publisher.</p>
+                    <h3>ARTICLE 3. AERONAUTICAL DISCLAIMER</h3>
+                    <p>THIS IS NOT A NAVIGATION INSTRUMENT. Displayed data may contain delays or errors. It is strictly forbidden to use ScanHorizon for piloting aircraft or for any activity related to aviation safety.</p>
 
-                    <h3>5. MEDIATION</h3>
+                    <h3>ARTICLE 4. INTELLECTUAL PROPERTY</h3>
+                    <p>The entire Application (source code, databases, design, sounds) is the exclusive property of SAS SCAN HORIZON. Scraping Prohibition: It is formally forbidden to extract all or a substantial part of the database content.</p>
+
+                    <h3>ARTICLE 5. AVAILABILITY</h3>
+                    <p>The Application is provided "as is". The Publisher does not guarantee 100% availability.</p>
+
+                    <h3>TITLE II: TERMS OF SALE (TOS)</h3>
+
+                    <h3>ARTICLE 6. PAID PRODUCTS AND SERVICES</h3>
+                    <p>The App offers In-App Purchases via stores: "PRO" Subscriptions (automatically renewable) and Consumables (Skins, Credits).</p>
+
+                    <h3>ARTICLE 7. PRICE AND PAYMENT</h3>
+                    <p>Transactions are handled exclusively by the Store platform (Apple or Google). The Publisher does not collect any banking data.</p>
+
+                    <h3>ARTICLE 8. RIGHT OF WITHDRAWAL (WAIVER)</h3>
+                    <p>In accordance with consumer law regarding digital content supplied without a tangible medium:</p>
+                    <p><strong>BY VALIDATING THE PURCHASE, THE USER ACCEPTS IMMEDIATE EXECUTION OF THE SERVICE AND EXPRESSLY WAIVES THEIR 14-DAY RIGHT OF WITHDRAWAL.</strong> No refund will be issued by the Publisher.</p>
+
+                    <h3>ARTICLE 9. SUBSCRIPTION TERMINATION</h3>
+                    <p>The User must cancel their subscription via their phone settings (Apple Account or Google Play). Deleting the App or ScanHorizon account does not stop the subscription charged by the Store.</p>
+
+                    <h3>ARTICLE 10. ACCOUNT DELETION</h3>
+                    <p>In case of account deletion, the User permanently loses access to their "Consumable" purchases and history, with no recourse or refund possible.</p>
+
+                    <h3>TITLE III: FINAL PROVISIONS</h3>
+
+                    <h3>ARTICLE 11. MODIFICATION</h3>
+                    <p>In case of substantial modification of the contract, the User will be informed at least 30 days before entry into force.</p>
+
+                    <h3>ARTICLE 12. MEDIATION</h3>
                     <p>In case of unresolved dispute, the User may have free recourse to the consumer mediator: <strong>CM2C</strong> (www.cm2c.net).</p>
+
+                    <h3>ARTICLE 13. APPLICABLE LAW</h3>
+                    <p>These terms are subject to French Law.</p>
                 </div>
             </div>
         </div>
@@ -388,41 +661,69 @@
             </div>
             <div class="legal-content">
                 <div class="lang-fr">
-                    <h3>1. ÉDITEUR</h3>
-                    <p><strong>SAS SCAN HORIZON</strong><br>
-                    Société par Actions Simplifiée au capital de 1000 euros.<br>
-                    Siège social : 10 impasse du Pegan, 01210 Ferney-Voltaire, France.<br>
-                    RCS de Bourg-en-Bresse sous le numéro : <strong>[VOTRE_NUMERO_SIRET]</strong>.<br>
-                    TVA Intracommunautaire : <strong>[VOTRE_NUMERO_TVA]</strong>.<br>
-                    Directeur de la publication : Paulin BANCKAERT.<br>
-                    Contact : admin@scan-horizon.com</p>
+                    <p><strong>MENTIONS LÉGALES</strong></p>
+                    <p>En vigueur au 01/02/2026</p>
+                    <p>Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique (LCEN), il est porté à la connaissance des utilisateurs de l'application ScanHorizon les présentes mentions légales.</p>
 
-                    <h3>2. HÉBERGEMENT</h3>
-                    <p>L'application est hébergée sur l'infrastructure Cloud de :<br>
-                    <strong>Google Cloud Platform / Firebase</strong><br>
-                    Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlande.</p>
+                    <h3>1. ÉDITEUR DE L'APPLICATION</h3>
+                    <p>L'application ScanHorizon est éditée par la société <strong>SAS SCAN HORIZON</strong>, Société par Actions Simplifiée au capital de 1000 euros.</p>
+                    <ul>
+                        <li><strong>Siège social :</strong> 10 impasse du Pegan, 01210 Ferney-Voltaire, France.</li>
+                        <li><strong>Immatriculation :</strong> Inscrite au RCS de BOURG-EN-BRESSE sous le numéro : <strong>[VOTRE_NUMERO_SIRET]</strong>.</li>
+                        <li><strong>Numéro de TVA Intracommunautaire :</strong> <strong>[FR + 11 chiffres]</strong>.</li>
+                        <li><strong>Directeur de la publication :</strong> Paulin BANCKAERT</li>
+                        <li><strong>Contact :</strong> admin@scan-horizon.com</li>
+                    </ul>
 
-                    <h3>3. PROPRIÉTÉ INTELLECTUELLE</h3>
-                    <p>L'ensemble de l'application (code source, algorithmes, design) est la propriété exclusive de la SAS SCAN HORIZON. Toute reproduction est interdite.</p>
+                    <h3>2. HÉBERGEMENT DES DONNÉES</h3>
+                    <p>L'application ne dispose pas de serveurs physiques en propre mais utilise une infrastructure Cloud (Serverless).</p>
+                    <ul>
+                        <li><strong>Hébergeur principal (Données & Authentification) :</strong><br>
+                        Google Ireland Limited (Google Cloud Platform / Firebase)<br>
+                        Gordon House, Barrow Street, Dublin 4, IRLANDE<br>
+                        Téléphone : +353 1 436 1001</li>
+                        <li><strong>Hébergeur Gestion Abonnements :</strong><br>
+                        RevenueCat, Inc.<br>
+                        1032 E Brandon Blvd #3003, Brandon, FL 33511, ÉTATS-UNIS</li>
+                    </ul>
+
+                    <h3>3. PROPRIÉTÉ INTELLECTUELLE (AVERTISSEMENT)</h3>
+                    <p>L'ensemble de l'application ScanHorizon (code source Flutter, algorithmes de reconnaissance, bases de données, design, graphismes "Cyberpunk", textes et logo) relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle.</p>
+                    <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments de l'application, quel que soit le moyen ou le procédé utilisé, est strictement interdite, sauf autorisation écrite préalable de la SAS SCAN HORIZON. Toute exploitation non autorisée sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.</p>
+
+                    <h3>4. LIMITATION DE RESPONSABILITÉ</h3>
+                    <p>Les informations fournies sur l'application (identification des aéronefs, altitude, vitesse) le sont à titre indicatif et de divertissement uniquement. Elles ne sauraient en aucun cas être utilisées à des fins de navigation aérienne, de sécurité ou de contrôle du trafic aérien. La SAS SCAN HORIZON ne saurait être tenue pour responsable des erreurs, d'une absence de disponibilité des informations ou de la présence de virus sur son application.</p>
                 </div>
 
                 <div class="lang-en hidden">
-                    <h3>1. PUBLISHER</h3>
-                    <p><strong>SAS SCAN HORIZON</strong><br>
-                    Simplified Joint Stock Company with a capital of 1000 euros.<br>
-                    Headquarters: 10 impasse du Pegan, 01210 Ferney-Voltaire, France.<br>
-                    RCS Bourg-en-Bresse number: <strong>[YOUR_SIRET_NUMBER]</strong>.<br>
-                    VAT Number: <strong>[YOUR_VAT_NUMBER]</strong>.<br>
-                    Director: Paulin BANCKAERT.<br>
-                    Contact: admin@scan-horizon.com</p>
+                    <p><strong>LEGAL NOTICE</strong></p>
+                    <p>Effective Date: February 01, 2026</p>
 
-                    <h3>2. HOSTING</h3>
-                    <p>The application is hosted on the Cloud infrastructure of:<br>
-                    <strong>Google Cloud Platform / Firebase</strong><br>
-                    Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.</p>
+                    <h3>1. APP PUBLISHER</h3>
+                    <p>The ScanHorizon application is published by <strong>SAS SCAN HORIZON</strong>, a Simplified Joint Stock Company with a capital of 1000 euros.</p>
+                    <ul>
+                        <li><strong>Headquarters:</strong> 10 impasse du Pegan, 01210 Ferney-Voltaire, France.</li>
+                        <li><strong>Registration:</strong> Registered with the RCS of BOURG-EN-BRESSE under number: <strong>[YOUR_SIRET_NUMBER]</strong>.</li>
+                        <li><strong>VAT Number:</strong> <strong>[YOUR_VAT_NUMBER]</strong>.</li>
+                        <li><strong>Publication Director:</strong> Paulin BANCKAERT</li>
+                        <li><strong>Contact:</strong> admin@scan-horizon.com</li>
+                    </ul>
+
+                    <h3>2. DATA HOSTING</h3>
+                    <ul>
+                        <li><strong>Main Host (Data & Auth):</strong><br>
+                        Google Ireland Limited (Google Cloud Platform / Firebase)<br>
+                        Gordon House, Barrow Street, Dublin 4, IRELAND</li>
+                        <li><strong>Subscription Management Host:</strong><br>
+                        RevenueCat, Inc.<br>
+                        1032 E Brandon Blvd #3003, Brandon, FL 33511, USA</li>
+                    </ul>
 
                     <h3>3. INTELLECTUAL PROPERTY</h3>
-                    <p>The entire application (source code, algorithms, design) is the exclusive property of SAS SCAN HORIZON. Any reproduction is prohibited.</p>
+                    <p>The entire ScanHorizon application (Flutter source code, algorithms, design, "Cyberpunk" graphics) is protected by French and international copyright law. Any unauthorized reproduction is strictly prohibited and constitutes infringement.</p>
+
+                    <h3>4. LIMITATION OF LIABILITY</h3>
+                    <p>Information provided on the app is for entertainment purposes only. It must never be used for air navigation or safety. SAS SCAN HORIZON is not liable for errors or unavailability.</p>
                 </div>
             </div>
         </div>
