@@ -400,6 +400,86 @@
             }
         }
 
+        .collection-section {
+            margin-top: 4.2rem;
+        }
+        .collection-head {
+            max-width: 760px;
+            margin-bottom: 1.4rem;
+        }
+        .collection-eyebrow {
+            display: inline-block;
+            color: #82f0c7;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-family: monospace;
+            font-size: 0.78rem;
+            margin-bottom: 0.7rem;
+        }
+        .collection-title {
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+            line-height: 1.12;
+            margin-bottom: 0.65rem;
+            color: #ffffff;
+        }
+        .collection-subtitle {
+            color: var(--text-dim);
+            line-height: 1.65;
+            max-width: 680px;
+        }
+
+        .cards-carousel {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding: 0.35rem 0.2rem 0.9rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+        }
+        .cards-carousel::-webkit-scrollbar {
+            height: 8px;
+        }
+        .cards-carousel::-webkit-scrollbar-thumb {
+            background: rgba(121, 190, 255, 0.45);
+            border-radius: 999px;
+        }
+
+        .aircraft-card {
+            flex: 0 0 clamp(260px, 40vw, 330px);
+            scroll-snap-align: start;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(5, 10, 21, 0.8);
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.38);
+            transition: transform 0.22s ease, border-color 0.22s ease;
+        }
+        .aircraft-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(126, 212, 255, 0.65);
+        }
+        .aircraft-card img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .carousel-note {
+            margin-top: 0.3rem;
+            color: rgba(205, 230, 255, 0.82);
+            font-size: 0.88rem;
+            font-family: monospace;
+        }
+
+        @media (max-width: 700px) {
+            .collection-section {
+                margin-top: 3rem;
+            }
+            .aircraft-card {
+                flex-basis: min(80vw, 320px);
+            }
+        }
+
         /* --- Legal Views (Mobile Optimized) --- */
         .legal-container {
             background: var(--glass);
@@ -579,6 +659,20 @@
                         </div>
                     </div>
                 </section>
+
+                <section class="collection-section" aria-label="Collection de cartes avions">
+                    <div class="collection-head">
+                        <span class="collection-eyebrow">Collection</span>
+                        <h2 class="collection-title">Étendez votre collection d'appareils rares, communs et iconiques.</h2>
+                        <p class="collection-subtitle">Faites glisser pour découvrir plus de cartes et enrichir votre hangar digital au fil de vos scans.</p>
+                    </div>
+                    <div class="cards-carousel">
+                        <article class="aircraft-card"><img src="common.png" alt="Carte avion niveau commun"></article>
+                        <article class="aircraft-card"><img src="epic.png" alt="Carte avion niveau rare"></article>
+                        <article class="aircraft-card"><img src="frequent.png" alt="Carte avion niveau fréquent"></article>
+                    </div>
+                    <p class="carousel-note">← Glissez horizontalement pour en voir plus</p>
+                </section>
             </div>
 
             <div class="lang-en hidden">
@@ -603,6 +697,20 @@
                             <div class="radar-vignette"></div>
                         </div>
                     </div>
+                </section>
+
+                <section class="collection-section" aria-label="Aircraft card collection">
+                    <div class="collection-head">
+                        <span class="collection-eyebrow">Collection</span>
+                        <h2 class="collection-title">Expand your collection with common, rare and iconic aircraft cards.</h2>
+                        <p class="collection-subtitle">Swipe to discover more cards and grow your digital hangar scan after scan.</p>
+                    </div>
+                    <div class="cards-carousel">
+                        <article class="aircraft-card"><img src="common.png" alt="Common aircraft card"></article>
+                        <article class="aircraft-card"><img src="epic.png" alt="Rare aircraft card"></article>
+                        <article class="aircraft-card"><img src="frequent.png" alt="Frequent aircraft card"></article>
+                    </div>
+                    <p class="carousel-note">← Swipe horizontally to see more</p>
                 </section>
             </div>
         </div>
