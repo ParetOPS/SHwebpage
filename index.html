@@ -320,7 +320,7 @@
             border-radius: 50%;
             object-fit: cover;
             filter: saturate(1.08) contrast(1.05);
-            transform: scale(1.2);
+            transform: scale(1.3);
             transform-origin: center;
             z-index: 1;
             pointer-events: none;
@@ -1025,22 +1025,26 @@
                     <p>Vos données ne sont <strong>ni vendues ni louées</strong>. Elles sont transmises uniquement à nos sous-traitants techniques pour l'exécution du service :</p>
                     <ul>
                         <li><strong>Google Cloud / Firebase (Irlande) :</strong> Hébergement sécurisé et authentification.</li>
+                        <li><strong>Railway (Pays-Bas) :</strong> Hébergement applicatif complémentaire avec serveur localisé à Amsterdam.</li>
                         <li><strong>PlaneFinder (Royaume-Uni) :</strong> API aéronautique (envoi de coordonnées GPS anonymisées).</li>
                         <li><strong>RevenueCat (USA) :</strong> Gestion des abonnements mobiles.</li>
                         <li><strong>Google AdMob (USA) :</strong> Régie publicitaire (uniquement si vous avez accepté le traçage).</li>
+                        <li><strong>Sentry (UE/USA selon configuration) :</strong> Supervision technique, journalisation des erreurs et rapports de crash afin d'améliorer la stabilité et la sécurité de l'Application.</li>
                     </ul>
 
                     <h3>ARTICLE 5. TRANSFERTS HORS UE</h3>
-                    <p>Certaines données techniques sont traitées par des prestataires situés aux États-Unis (Google, RevenueCat). L'Éditeur garantit que ces transferts sont encadrés par les Clauses Contractuelles Types (CCT) de la Commission Européenne ou par l'adhésion des prestataires au Data Privacy Framework (DPF), assurant un niveau de protection adéquat.</p>
+                    <p>Certaines données techniques peuvent être traitées en dehors de l'Union européenne, notamment via Google (Firebase/AdMob), RevenueCat, Sentry et, selon les flux de données aéronautiques, PlaneFinder (Royaume-Uni). Ces transferts sont encadrés par des mécanismes appropriés (Clauses Contractuelles Types de la Commission Européenne, et/ou adhésion au Data Privacy Framework lorsque applicable) afin d'assurer un niveau de protection adéquat.</p>
 
                     <h3>ARTICLE 6. COOKIES ET SDK MOBILES</h3>
                     <p>L'Application n'utilise pas de "cookies" web classiques, mais des SDK (Software Development Kits) et des identifiants mobiles. L'utilisation des traceurs publicitaires et analytiques est soumise à votre consentement préalable, recueilli lors du premier lancement via notre plateforme de gestion des consentements (CMP). Vous pouvez modifier ce choix à tout moment dans les paramètres de l'Application ("Gérer mes choix").</p>
+                    <p>Si vous acceptez les traceurs/cookies via la CMP, nous pouvons également stocker une <strong>tranche d'âge</strong> (ex. 15-17, 18-24, 25-34, etc.) à des fins de personnalisation, d'analyse statistique et d'adaptation des contenus. Nous ne stockons pas votre date de naissance complète dans ce cadre. En l'absence de consentement, cette donnée n'est pas collectée via les traceurs publicitaires/mesure d'audience.</p>
 
                     <h3>ARTICLE 7. DURÉE DE CONSERVATION</h3>
                     <ul>
                         <li><strong>Géolocalisation :</strong> Aucune historisation. Donnée écrasée en temps réel (cache max 24h).</li>
                         <li><strong>Données de Compte & Achats :</strong> Durée de l'utilisation du service + 5 ans (prescription légale).</li>
                         <li><strong>Données publicitaires :</strong> 13 mois maximum après consentement.</li>
+                        <li><strong>Logs techniques & rapports d'erreur (dont Sentry) :</strong> 12 mois maximum, sauf durée supérieure imposée par une obligation légale ou nécessaire à la gestion d'un incident de sécurité en cours.</li>
                         <li><strong>Comptes inactifs :</strong> Suppression automatique après 24 mois sans connexion.</li>
                     </ul>
 
@@ -1048,7 +1052,8 @@
                     <p>Nous mettons en œuvre des mesures de sécurité avancées (chiffrement TLS, accès restreints). Conformément à l'article 33 du RGPD, en cas de violation de données présentant un risque pour vos droits, l'Éditeur s'engage à notifier la CNIL dans les 72 heures et, si nécessaire, à informer les utilisateurs concernés.</p>
 
                     <h3>ARTICLE 9. VOS DROITS ET SUPPRESSION DE COMPTE</h3>
-                    <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de portabilité et d'opposition.</p>
+                    <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de portabilité, de limitation du traitement et d'opposition.</p>
+                    <p>Lorsque le traitement repose sur votre consentement (ex. traceurs publicitaires/mesure d'audience), vous pouvez retirer ce consentement à tout moment, sans effet rétroactif sur les traitements déjà effectués avant ce retrait.</p>
                     <p><strong>Comment supprimer vos données ?</strong></p>
                     <ul>
                         <li><strong>Dans l'Application :</strong> Via le menu "Paramètres > Confidentialité > Supprimer mon compte".</li>
@@ -1148,22 +1153,26 @@
                     <p>Your data is <strong>neither sold nor rented</strong>. It is transmitted only to our technical subcontractors for service execution:</p>
                     <ul>
                         <li><strong>Google Cloud / Firebase (Ireland):</strong> Secure hosting and authentication.</li>
+                        <li><strong>Railway (Netherlands):</strong> Additional application hosting with server location in Amsterdam.</li>
                         <li><strong>PlaneFinder (UK):</strong> Aeronautical API (sending anonymized GPS coordinates).</li>
                         <li><strong>RevenueCat (USA):</strong> Mobile subscription management.</li>
                         <li><strong>Google AdMob (USA):</strong> Advertising network (only if you accepted tracking).</li>
+                        <li><strong>Sentry (EU/USA depending on configuration):</strong> Technical monitoring, error logging, and crash reporting to improve Application stability and security.</li>
                     </ul>
 
                     <h3>ARTICLE 5. TRANSFERTS OUTSIDE EU</h3>
-                    <p>Some technical data is processed by providers located in the USA (Google, RevenueCat). The Publisher guarantees these transfers are covered by the European Commission's Standard Contractual Clauses (SCC) or the providers' adherence to the Data Privacy Framework (DPF), ensuring an adequate level of protection.</p>
+                    <p>Some technical data may be processed outside the European Union, notably through Google (Firebase/AdMob), RevenueCat, Sentry and, depending on aeronautical data flows, PlaneFinder (United Kingdom). These transfers are governed by appropriate safeguards (European Commission Standard Contractual Clauses and/or Data Privacy Framework participation where applicable) to ensure an adequate level of protection.</p>
 
                     <h3>ARTICLE 6. COOKIES AND MOBILE SDKS</h3>
                     <p>The App does not use classic web "cookies" but SDKs (Software Development Kits) and mobile identifiers. The use of advertising and analytical trackers is subject to your prior consent, collected at first launch via our Consent Management Platform (CMP). You can modify this choice at any time in App settings.</p>
+                    <p>If you accept trackers/cookies through the CMP, we may also store an <strong>age bracket</strong> (e.g. 15-17, 18-24, 25-34, etc.) for personalization, audience measurement, and content adaptation. We do not store your full date of birth for this purpose. Without consent, this data is not collected through advertising/analytics trackers.</p>
 
                     <h3>ARTICLE 7. RETENTION PERIOD</h3>
                     <ul>
                         <li><strong>Geolocation:</strong> No history stored. Data overwritten in real-time (max cache 24h).</li>
                         <li><strong>Account & Purchase Data:</strong> Duration of service use + 5 years (legal prescription).</li>
                         <li><strong>Advertising Data:</strong> 13 months maximum after consent.</li>
+                        <li><strong>Technical logs & error/crash reports (including Sentry):</strong> Up to 12 months, unless a longer period is required by law or strictly necessary to handle an ongoing security incident.</li>
                         <li><strong>Comptes inactifs :</strong> Suppression automatique après 24 mois sans connexion.</li>
                     </ul>
 
@@ -1171,14 +1180,15 @@
                     <p>We implement advanced security measures (TLS encryption, restricted access). In accordance with GDPR Article 33, in case of a data breach presenting a risk to your rights, the Publisher commits to notifying the CNIL within 72 hours and, if necessary, informing concerned users.</p>
 
                     <h3>ARTICLE 9. YOUR RIGHTS AND ACCOUNT DELETION</h3>
-                    <p>You have the right to access, rectify, erase, port, and object to your data.</p>
+                    <p>You have the right to access, rectify, erase, port, restrict processing, and object to processing of your personal data.</p>
+                    <p>When processing is based on your consent (e.g. advertising/analytics trackers), you may withdraw consent at any time, without affecting processing already carried out before withdrawal.</p>
                     <p><strong>How to delete your data?</strong></p>
                     <ul>
                         <li><strong>In the App:</strong> Via "Settings > Privacy > Delete my account".</li>
                         <li><strong>On the Web (No app):</strong> Via our dedicated deletion form accessible on this page.</li>
                         <li><strong>By Email:</strong> Write to admin@scan-horizon.com.</li>
                     </ul>
-                    <p>Vous avez également le droit d'introduire une réclamation auprès de la CNIL (www.cnil.fr).</p>
+                    <p>You also have the right to lodge a complaint with the CNIL (www.cnil.fr) or with your local supervisory authority where applicable.</p>
 
                     <h3>ARTICLE 10. DROIT CALIFORNIEN (CCPA)</h3>
                     <p>Pour nos utilisateurs résidant en Californie : Nous ne vendons pas vos données personnelles ("Do Not Sell My Personal Information"). Vous bénéficiez des mêmes droits d'accès et de suppression que ceux décrits à l'Article 9.</p>
@@ -1223,13 +1233,15 @@
                     <p><strong>2.1. Responsabilité de l'Utilisateur :</strong> L'Utilisateur reconnaît utiliser l'Application dans le monde réel. Il s'engage à rester vigilant à son environnement immédiat (voitures, obstacles, piétons) et à ne jamais utiliser l'Application en conduisant un véhicule.</p>
                     <p><strong>2.2. Exclusion Totale de Responsabilité :</strong> L'Éditeur décline toute responsabilité en cas de dommages corporels, matériels ou de poursuites judiciaires résultant d'un accident, d'une intrusion ou d'une inattention de l'Utilisateur.</p>
                     <p><strong>2.3. Plafond de responsabilité :</strong> Si la responsabilité de l'Éditeur devait être engagée par un tribunal, le montant des indemnités ne pourra en aucun cas excéder la somme totale payée par l'Utilisateur pour les services de l'Application au cours des 12 derniers mois.</p>
+                    <p><strong>2.4. Zones réglementées (Aéroports / Tarmac) :</strong> L'Application n'incite en aucun cas à s'introduire sur un tarmac, dans des zones aéroportuaires sécurisées, ou dans toute zone contrôlée/interdite d'accès. L'Utilisateur demeure seul responsable du respect des lois, règlements, périmètres de sûreté et consignes des autorités. L'Éditeur se dégage de toute responsabilité en cas d'infraction, d'interpellation, d'amende, de dommages ou de préjudices liés à une intrusion ou à un accès non autorisé.</p>
                     </div>
 
                     <h3>ARTICLE 3. AVERTISSEMENT AÉRONAUTIQUE (DISCLAIMER)</h3>
-                    <p>CECI N'EST PAS UN INSTRUMENT DE NAVIGATION. Les données affichées peuvent comporter des retards ou des erreurs. Il est strictement interdit d'utiliser ScanHorizon pour le pilotage d'aéronefs ou pour toute activité liée à la sécurité aérienne.</p>
+                    <p>CECI N'EST PAS UN INSTRUMENT DE NAVIGATION. Les informations affichées sur les aéronefs, compagnies aériennes (airlines), altitudes, vitesses, routes ou statuts de vol sont fournies à titre purement informatif et de divertissement. Elles peuvent être incomplètes, retardées, indisponibles ou inexactes. Ces données ne doivent pas être considérées comme exactes, opposables ou adaptées à un usage opérationnel. Il est strictement interdit d'utiliser ScanHorizon pour le pilotage d'aéronefs ou pour toute activité liée à la sécurité aérienne. L'Éditeur décline toute responsabilité au titre des décisions prises sur la base de ces informations.</p>
 
                     <h3>ARTICLE 4. PROPRIÉTÉ INTELLECTUELLE</h3>
                     <p>L'ensemble de l'Application (code source, bases de données, design, sons) est la propriété exclusive de la SAS SCAN HORIZON. Interdiction de Scraping : Il est formellement interdit d'extraire la totalité ou une partie substantielle du contenu de la base de données (Art L.341-1 du CPI).</p>
+                    <p>Les photos d'aéronefs utilisées dans l'Application et/ou sur le site sont créditées avec mention du photographe et, lorsque cela s'applique, du site source. Malgré le soin apporté à l'attribution, une erreur peut survenir. En cas de réclamation, de demande de correction, de retrait ou de précision de crédit, merci de nous contacter à <strong>support@scan-horizon.com</strong>. Nous nous engageons à répondre dans les meilleurs délais et à respecter le travail de chaque photographe.</p>
 
                     <h3>ARTICLE 5. DISPONIBILITÉ</h3>
                     <p>L'Application est fournie "en l'état". L'Éditeur ne garantit pas une disponibilité 100%.</p>
@@ -1291,13 +1303,15 @@
                     <p><strong>2.1. User Responsibility:</strong> The User acknowledges using the Application in the real world. They agree to remain vigilant of their immediate surroundings (cars, obstacles, pedestrians) and never to use the Application while driving.</p>
                     <p><strong>2.2. Total Exclusion of Liability:</strong> The Publisher declines all liability in case of bodily injury, property damage, or legal proceedings resulting from an accident, trespassing, or inattention by the User.</p>
                     <p><strong>2.3. Liability Cap:</strong> If the Publisher is held liable by a court, compensation shall not exceed the total sum paid by the User for the Application's services over the last 12 months.</p>
+                    <p><strong>2.4. Restricted areas (Airports / Tarmac):</strong> The Application does not encourage, request, or permit users to enter airport tarmacs, secured airport areas, or any controlled/restricted zone. Users are solely responsible for complying with applicable laws, security perimeters, airport rules, and authority instructions. The Publisher disclaims any liability for trespassing, fines, arrests, damages, or losses resulting from unauthorized access.</p>
                     </div>
 
                     <h3>ARTICLE 3. AERONAUTICAL DISCLAIMER</h3>
-                    <p>THIS IS NOT A NAVIGATION INSTRUMENT. Displayed data may contain delays or errors. It is strictly forbidden to use ScanHorizon for piloting aircraft or for any activity related to aviation safety.</p>
+                    <p>THIS IS NOT A NAVIGATION INSTRUMENT. Information about aircraft, airlines, altitude, speed, routes, and flight status is provided for informational and entertainment purposes only. Data may be delayed, incomplete, unavailable, or inaccurate and must not be treated as exact, certified, or operationally reliable. It is strictly forbidden to use ScanHorizon for aircraft piloting or any aviation safety-related activity. The Publisher disclaims liability for decisions or actions taken on the basis of such information.</p>
 
                     <h3>ARTICLE 4. INTELLECTUAL PROPERTY</h3>
                     <p>The entire ScanHorizon application (Flutter source code, algorithms, design, "Cyberpunk" graphics) is protected by French and international copyright law. Any unauthorized reproduction is strictly prohibited and constitutes infringement.</p>
+                    <p>Aircraft photos used in the Application and/or on the website include attribution to the photographer and, where applicable, to the source website. Despite our best efforts, attribution errors may occur. For any claim, correction request, takedown request, or credit update, please contact <strong>support@scan-horizon.com</strong>. We will respond as quickly as possible and we respect the work of every photographer.</p>
 
                     <h3>ARTICLE 5. AVAILABILITY</h3>
                     <p>The Application is provided "as is". The Publisher does not guarantee 100% availability.</p>
@@ -1350,8 +1364,9 @@
                     <p>L'application ScanHorizon est éditée par la société <strong>SAS SCAN HORIZON</strong>, Société par Actions Simplifiée au capital de 1000 euros.</p>
                     <ul>
                         <li><strong>Siège social :</strong> 10 impasse du Pegan, 01210 Ferney-Voltaire, France.</li>
-                        <li><strong>Immatriculation :</strong> Inscrite au RCS de BOURG-EN-BRESSE sous le numéro : <strong>[VOTRE_NUMERO_SIRET]</strong>.</li>
-                        <li><strong>Numéro de TVA Intracommunautaire :</strong> <strong>[FR + 11 chiffres]</strong>.</li>
+                        <li><strong>Immatriculation :</strong> 101 177 517 R.C.S. Bourg-en-Bresse.</li>
+                        <li><strong>EUID :</strong> FR0101.101177517.</li>
+                        <li><strong>Numéro de TVA Intracommunautaire :</strong> <strong>FR 49 101 177 517</strong>.</li>
                         <li><strong>Directeur de la publication :</strong> Paulin BANCKAERT</li>
                         <li><strong>Contact :</strong> admin@scan-horizon.com</li>
                     </ul>
@@ -1363,6 +1378,8 @@
                         Google Ireland Limited (Google Cloud Platform / Firebase)<br>
                         Gordon House, Barrow Street, Dublin 4, IRLANDE<br>
                         Téléphone : +353 1 436 1001</li>
+                        <li><strong>Hébergement applicatif complémentaire :</strong><br>
+                        Railway (serveur localisé à Amsterdam, Pays-Bas)</li>
                         <li><strong>Hébergeur Gestion Abonnements :</strong><br>
                         RevenueCat, Inc.<br>
                         1032 E Brandon Blvd #3003, Brandon, FL 33511, ÉTATS-UNIS</li>
@@ -1371,9 +1388,11 @@
                     <h3>3. PROPRIÉTÉ INTELLECTUELLE (AVERTISSEMENT)</h3>
                     <p>L'ensemble de l'application ScanHorizon (code source Flutter, algorithmes de reconnaissance, bases de données, design, graphismes "Cyberpunk", textes et logo) relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle.</p>
                     <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments de l'application, quel que soit le moyen ou le procédé utilisé, est strictement interdite, sauf autorisation écrite préalable de la SAS SCAN HORIZON. Toute exploitation non autorisée sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.</p>
+                    <p>Les visuels d'aéronefs publiés sont crédités au nom du photographe et, le cas échéant, du site source. Pour toute réclamation relative à un crédit, à une attribution, à une erreur ou à une demande de retrait, contactez <strong>support@scan-horizon.com</strong>. Nous traiterons votre demande dans les meilleurs délais, dans le respect du travail de chaque photographe.</p>
 
                     <h3>4. LIMITATION DE RESPONSABILITÉ</h3>
-                    <p>Les informations fournies sur l'application (identification des aéronefs, altitude, vitesse) le sont à titre indicatif et de divertissement uniquement. Elles ne sauraient en aucun cas être utilisées à des fins de navigation aérienne, de sécurité ou de contrôle du trafic aérien. La SAS SCAN HORIZON ne saurait être tenue pour responsable des erreurs, d'une absence de disponibilité des informations ou de la présence de virus sur son application.</p>
+                    <p>Les informations fournies sur l'application (identification des aéronefs, compagnies aériennes, altitude, vitesse, trajectoires, statuts) le sont à titre indicatif et de divertissement uniquement. Elles peuvent comporter des erreurs, retards, omissions ou indisponibilités et ne doivent pas être considérées comme exactes ni utilisées à des fins de navigation aérienne, de sécurité ou de contrôle du trafic aérien. La SAS SCAN HORIZON ne saurait être tenue pour responsable des conséquences directes ou indirectes liées à l'usage de ces informations.</p>
+                    <p>L'application n'incite pas à pénétrer sur un tarmac, en zone aéroportuaire sécurisée ou dans toute zone contrôlée/interdite. Toute intrusion relève de la seule responsabilité de l'utilisateur, et la SAS SCAN HORIZON décline toute responsabilité à ce titre.</p>
                 </div>
 
                 <div class="lang-en hidden">
@@ -1384,8 +1403,9 @@
                     <p>The ScanHorizon application is published by <strong>SAS SCAN HORIZON</strong>, a Simplified Joint Stock Company with a capital of 1000 euros.</p>
                     <ul>
                         <li><strong>Headquarters:</strong> 10 impasse du Pegan, 01210 Ferney-Voltaire, France.</li>
-                        <li><strong>Registration:</strong> Registered with the RCS of BOURG-EN-BRESSE under number: <strong>[YOUR_SIRET_NUMBER]</strong>.</li>
-                        <li><strong>VAT Number:</strong> <strong>[YOUR_VAT_NUMBER]</strong>.</li>
+                        <li><strong>Registration:</strong> 101 177 517 R.C.S. Bourg-en-Bresse.</li>
+                        <li><strong>EUID:</strong> FR0101.101177517.</li>
+                        <li><strong>VAT Number:</strong> <strong>FR 49 101 177 517</strong>.</li>
                         <li><strong>Publication Director:</strong> Paulin BANCKAERT</li>
                         <li><strong>Contact:</strong> admin@scan-horizon.com</li>
                     </ul>
@@ -1395,6 +1415,8 @@
                         <li><strong>Main Host (Data & Auth):</strong><br>
                         Google Ireland Limited (Google Cloud Platform / Firebase)<br>
                         Gordon House, Barrow Street, Dublin 4, IRELAND</li>
+                        <li><strong>Additional Application Hosting:</strong><br>
+                        Railway (server located in Amsterdam, Netherlands)</li>
                         <li><strong>Subscription Management Host:</strong><br>
                         RevenueCat, Inc.<br>
                         1032 E Brandon Blvd #3003, Brandon, FL 33511, USA</li>
@@ -1402,9 +1424,11 @@
 
                     <h3>3. INTELLECTUAL PROPERTY</h3>
                     <p>The entire ScanHorizon application (Flutter source code, algorithms, design, "Cyberpunk" graphics) is protected by French and international copyright law. Any unauthorized reproduction is strictly prohibited and constitutes infringement.</p>
+                    <p>Aircraft visuals are published with attribution to the photographer and, when applicable, to the source website. If you identify any issue regarding credit, attribution, licensing, or a removal request, please contact <strong>support@scan-horizon.com</strong>. We handle such requests promptly and with full respect for each photographer's work.</p>
 
                     <h3>4. LIMITATION OF LIABILITY</h3>
-                    <p>Information provided on the app is for entertainment purposes only. It must never be used for air navigation or safety. SAS SCAN HORIZON is not liable for errors or unavailability.</p>
+                    <p>Information provided in the app (aircraft identification, airlines, altitude, speed, routes, status) is for informational and entertainment purposes only. It may contain errors, delays, omissions, or unavailability and must not be considered exact or used for aviation navigation, safety, or air traffic control purposes. SAS SCAN HORIZON disclaims liability for any direct or indirect consequences arising from use of such information.</p>
+                    <p>The Application does not encourage access to airport tarmacs, secured airport areas, or any controlled/restricted zone. Any trespass remains the sole responsibility of the user, and SAS SCAN HORIZON disclaims all related liability.</p>
                 </div>
             </div>
         </div>
