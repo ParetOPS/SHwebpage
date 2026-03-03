@@ -468,6 +468,167 @@
             }
         }
 
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+                background-position: center top;
+            }
+
+            body::before {
+                backdrop-filter: none;
+                background: rgba(5, 10, 21, 0.9);
+            }
+
+            .scan-line {
+                height: 2px;
+                animation-duration: 7s;
+                opacity: 0.7;
+            }
+
+            header {
+                height: 68px;
+                padding: 0 12px;
+            }
+
+            .logo-img {
+                max-height: 130px;
+            }
+
+            .lang-switch button {
+                padding: 6px 10px;
+                margin-left: 6px;
+                font-size: 0.74rem;
+            }
+
+            main {
+                padding: 1.6rem 0.95rem;
+            }
+
+            .hero {
+                gap: 1.5rem;
+                padding-top: 0.2rem;
+            }
+
+            .hero-copy h1 {
+                font-size: clamp(1.9rem, 9vw, 2.8rem);
+                line-height: 1.08;
+                letter-spacing: -0.7px;
+                margin-bottom: 1rem;
+            }
+
+            .hero-copy p {
+                font-size: 1rem;
+                line-height: 1.55;
+                margin-bottom: 1.25rem;
+            }
+
+            .store-buttons {
+                width: 100%;
+                justify-content: center;
+                gap: 0.65rem;
+            }
+
+            .store-btn {
+                min-width: 130px;
+                text-align: center;
+                padding: 10px 14px;
+            }
+
+            .ocean-ring {
+                width: min(88vw, 340px);
+            }
+
+            .real-map,
+            .radar-grid,
+            .radar-sweep,
+            .radar-vignette,
+            .ocean-ring::before,
+            .ocean-ring::after {
+                inset: 8px;
+            }
+
+            .real-map {
+                width: calc(100% - 16px);
+                height: calc(100% - 16px);
+            }
+
+            .gps-point {
+                width: 12px;
+                height: 12px;
+                border-width: 2.5px;
+            }
+
+            .collection-head {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .collection-title {
+                font-size: clamp(1.35rem, 7vw, 2rem);
+            }
+
+            .collection-subtitle {
+                font-size: 0.96rem;
+                line-height: 1.55;
+            }
+
+            .cards-carousel {
+                height: clamp(320px, 92vw, 470px);
+            }
+
+            .aircraft-card {
+                width: min(70vw, 290px);
+            }
+
+            .aircraft-card.left {
+                transform: translateX(-50%) rotate(-45deg) scale(0.68);
+            }
+
+            .aircraft-card.right {
+                transform: translateX(50%) rotate(45deg) scale(0.68);
+            }
+
+            footer {
+                padding: 2.2rem 0.9rem;
+            }
+
+            .footer-links {
+                gap: 0.9rem 1.1rem;
+            }
+
+            .footer-links a {
+                font-size: 0.78rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .store-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .store-btn {
+                width: 100%;
+            }
+
+            .cards-carousel {
+                height: 320px;
+            }
+
+            .aircraft-card {
+                width: 72vw;
+            }
+
+            .aircraft-card.left {
+                transform: translateX(-43%) rotate(-45deg) scale(0.62);
+            }
+
+            .aircraft-card.right {
+                transform: translateX(43%) rotate(45deg) scale(0.62);
+            }
+        }
+
         /* --- Legal Views (Mobile Optimized) --- */
         .legal-container {
             background: var(--glass);
@@ -650,7 +811,7 @@
                     <div class="collection-head">
                         <span class="collection-eyebrow">Collection</span>
                         <h2 class="collection-title">Étendez votre collection d'appareils rares, communs et iconiques.</h2>
-                        <p class="collection-subtitle">Faites glisser pour découvrir plus de cartes et enrichir votre hangar digital au fil de vos scans.</p>
+                        <p class="collection-subtitle">Découvrez de nouvelles cartes et enrichissez votre hangar digital au fil de vos scans.</p>
                     </div>
                     <div class="cards-carousel">
                         <article class="aircraft-card left"><img src="common.png" alt="Carte avion niveau commun"></article>
@@ -687,7 +848,7 @@
                     <div class="collection-head">
                         <span class="collection-eyebrow">Collection</span>
                         <h2 class="collection-title">Expand your collection with common, rare and iconic aircraft cards.</h2>
-                        <p class="collection-subtitle">Swipe to discover more cards and grow your digital hangar scan after scan.</p>
+                        <p class="collection-subtitle">Discover new cards and grow your digital hangar scan after scan.</p>
                     </div>
                     <div class="cards-carousel">
                         <article class="aircraft-card left"><img src="common.png" alt="Common aircraft card"></article>
