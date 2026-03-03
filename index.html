@@ -205,6 +205,10 @@
             flex-wrap: wrap;
         }
         .store-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             text-decoration: none;
             color: #ffffff;
             border: 1px solid rgba(134, 196, 255, 0.28);
@@ -215,6 +219,18 @@
             font-weight: 600;
             letter-spacing: 0.2px;
             transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+        }
+        .store-icon {
+            width: 16px;
+            height: 16px;
+            flex: 0 0 16px;
+            display: inline-block;
+        }
+        .store-icon svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            fill: currentColor;
         }
         .store-btn:hover {
             transform: translateY(-2px);
@@ -584,15 +600,19 @@
             }
 
             .aircraft-card {
-                width: min(76vw, 310px);
+                width: min(66vw, 250px);
+            }
+
+            .aircraft-card.center {
+                transform: translateX(0) rotate(0deg) scale(0.9);
             }
 
             .aircraft-card.left {
-                transform: translateX(-46%) rotate(-24deg) scale(0.78);
+                transform: translateX(-50%) rotate(-20deg) scale(0.64);
             }
 
             .aircraft-card.right {
-                transform: translateX(46%) rotate(24deg) scale(0.78);
+                transform: translateX(50%) rotate(20deg) scale(0.64);
             }
 
             footer {
@@ -623,19 +643,23 @@
             }
 
             .cards-carousel {
-                height: 340px;
+                height: 300px;
             }
 
             .aircraft-card {
-                width: 80vw;
+                width: 70vw;
+            }
+
+            .aircraft-card.center {
+                transform: translateX(0) rotate(0deg) scale(0.84);
             }
 
             .aircraft-card.left {
-                transform: translateX(-40%) rotate(-18deg) scale(0.72);
+                transform: translateX(-44%) rotate(-14deg) scale(0.56);
             }
 
             .aircraft-card.right {
-                transform: translateX(40%) rotate(18deg) scale(0.72);
+                transform: translateX(44%) rotate(14deg) scale(0.56);
             }
         }
 
@@ -802,14 +826,13 @@
                         <p>Visualise l'activité aérienne en temps réel avec une interface claire, rapide et immersive, pensée pour le spotting nouvelle génération.</p>
                         <a href="mailto:admin@scan-horizon.com?subject=Acc%C3%A8s%20b%C3%AAta%20test%20ScanHorizon" class="beta-link">Accès bêta test</a>
                         <div class="store-buttons">
-                            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="store-btn">iOS</a>
-                            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="store-btn">Google Play</a>
+                            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M16.365 1.43c0 1.14-.414 2.198-1.104 2.983-.789.9-2.074 1.595-3.19 1.51-.141-1.109.446-2.295 1.127-3.042.751-.833 2.057-1.43 3.167-1.451zM20.678 17.156c-.565 1.258-.836 1.818-1.563 2.924-1.014 1.544-2.445 3.468-4.22 3.483-1.58.014-1.987-1.03-4.132-1.017-2.146.013-2.594 1.036-4.174 1.022-1.775-.016-3.13-1.75-4.143-3.293-2.834-4.321-3.134-9.389-1.381-12.08 1.246-1.91 3.21-3.028 5.056-3.028 1.88 0 3.062 1.03 4.616 1.03 1.507 0 2.425-1.033 4.601-1.033 1.645 0 3.389.895 4.634 2.438-4.068 2.23-3.406 8.028.706 9.554z"/></svg></span>iOS</a>
+                            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 2.5v19l10.1-9.5L3 2.5zm11.8 11L18 10.7l3 1.7-3 1.7-3.2-0.6zm-1.5.8L3 21.5l11.7-6.8-1.4-0.4zm1.4-4.6L3 2.5l10.3 7.1 1.4-0.9z"/></svg></span>Android</a>
                         </div>
                     </div>
                     <div class="radar-scene" aria-hidden="true">
                         <div class="ocean-ring">
-                            <img class="real-map" src="https://staticmap.openstreetmap.de/staticmap.php?center=20.8893,-156.4729&zoom=12&size=640x640&maptype=mapnik&markers=20.8893,-156.4729,lightblue1" alt="Mini carte Hawaii">
-                            <div class="radar-grid"></div>
+                            <img class="real-map" src="https://staticmap.openstreetmap.de/staticmap.php?center=-17.6509,-149.4260&zoom=10&size=640x640&maptype=mapnik&markers=-17.6509,-149.4260,lightblue1" alt="Mini carte Tahiti">                            <div class="radar-grid"></div>
                             <div class="radar-sweep"></div>
                             <span class="gps-point"></span>
                             <div class="radar-vignette"></div>
@@ -839,8 +862,8 @@
                         <p>Track live air activity with a clean, fast and immersive interface built for the next generation of spotting.</p>
                         <a href="mailto:admin@scan-horizon.com?subject=ScanHorizon%20beta%20test%20access" class="beta-link">Beta test access</a>
                         <div class="store-buttons">
-                            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="store-btn">iOS</a>
-                            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="store-btn">Google Play</a>
+                            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M16.365 1.43c0 1.14-.414 2.198-1.104 2.983-.789.9-2.074 1.595-3.19 1.51-.141-1.109.446-2.295 1.127-3.042.751-.833 2.057-1.43 3.167-1.451zM20.678 17.156c-.565 1.258-.836 1.818-1.563 2.924-1.014 1.544-2.445 3.468-4.22 3.483-1.58.014-1.987-1.03-4.132-1.017-2.146.013-2.594 1.036-4.174 1.022-1.775-.016-3.13-1.75-4.143-3.293-2.834-4.321-3.134-9.389-1.381-12.08 1.246-1.91 3.21-3.028 5.056-3.028 1.88 0 3.062 1.03 4.616 1.03 1.507 0 2.425-1.033 4.601-1.033 1.645 0 3.389.895 4.634 2.438-4.068 2.23-3.406 8.028.706 9.554z"/></svg></span>iOS</a>
+                            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 2.5v19l10.1-9.5L3 2.5zm11.8 11L18 10.7l3 1.7-3 1.7-3.2-0.6zm-1.5.8L3 21.5l11.7-6.8-1.4-0.4zm1.4-4.6L3 2.5l10.3 7.1 1.4-0.9z"/></svg></span>Android</a>
                         </div>
                     </div>
                     <div class="radar-scene" aria-hidden="true">
