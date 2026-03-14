@@ -654,18 +654,40 @@
             }
 
             .live-stats {
-                grid-template-columns: 1fr;
-                max-width: 320px;
-                gap: 0.65rem;
-                margin-bottom: 1rem;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                max-width: 100%;
+                gap: 0.6rem;
+                margin-bottom: 1.05rem;
             }
 
             .live-stat-card {
-                padding: 0.8rem 0.9rem;
+                padding: 0.75rem 0.72rem;
+                border-radius: 12px;
+            }
+
+            .live-stat-head {
+                margin-bottom: 0.32rem;
+            }
+
+            .live-stat-icon {
+                width: 30px;
+                height: 30px;
+                border-radius: 8px;
+            }
+
+            .live-stat-icon svg {
+                width: 15px;
+                height: 15px;
             }
 
             .live-stat-value {
-                font-size: clamp(1.5rem, 7vw, 2rem);
+                font-size: clamp(1.3rem, 6.1vw, 1.82rem);
+            }
+
+            .live-stat-label {
+                margin-top: 0.22rem;
+                font-size: 0.68rem;
+                letter-spacing: 0.45px;
             }
 
             .store-btn {
@@ -753,6 +775,26 @@
             .store-buttons {
                 flex-direction: column;
                 align-items: stretch;
+            }
+
+            .live-stats {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+                gap: 0.55rem;
+            }
+
+            .live-stat-card {
+                padding: 0.72rem;
+            }
+
+            .live-stat-value {
+                font-size: clamp(1.34rem, 8vw, 1.78rem);
+            }
+
+            .live-stat-label {
+                font-size: 0.7rem;
             }
 
             .logo-mobile {
