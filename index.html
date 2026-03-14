@@ -1653,22 +1653,48 @@
         async function fetchLiveStats() {
             const scansUrl = 'https://diffusion-api-production.up.railway.app/api/stats/scans-count';
             const usersUrl = 'https://diffusion-api-production.up.railway.app/api/stats/users-count';
-            const corsProxyPrefix = 'https://corsproxy.io/?';
+            const allOriginsPrefix = 'https://api.allorigins.win/raw?url=';
+            const jinaPrefix = 'https://r.jina.ai/http://';
+
+            async function parseJsonFromResponse(response) {
+                const contentType = (response.headers.get('content-type') || '').toLowerCase();
+
+                if (contentType.includes('application/json')) {
+                    return await response.json();
+                }
+
+                const rawText = await response.text();
+                const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+
+                if (!jsonMatch) {
+                    throw new Error('Réponse non JSON');
+                }
+
+                return JSON.parse(jsonMatch[0]);
+            }
 
             async function fetchJsonWithCorsFallback(url) {
-                try {
-                    const directResponse = await fetch(url);
-                    if (!directResponse.ok) {
-                        throw new Error(`HTTP ${directResponse.status}`);
+                const attempts = [
+                    url,
+                    `${allOriginsPrefix}${encodeURIComponent(url)}`,
+                    `${jinaPrefix}${url.replace(/^https?:\/\//, '')}`
+                ];
+
+                let lastError = null;
+
+                for (const attemptUrl of attempts) {
+                    try {
+                        const response = await fetch(attemptUrl);
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+                        return await parseJsonFromResponse(response);
+                    } catch (attemptError) {
+                        lastError = attemptError;
                     }
-                    return await directResponse.json();
-                } catch (directError) {
-                    const proxyResponse = await fetch(`${corsProxyPrefix}${encodeURIComponent(url)}`);
-                    if (!proxyResponse.ok) {
-                        throw directError;
-                    }
-                    return await proxyResponse.json();
                 }
+
+                throw lastError || new Error('Impossible de charger les stats');
             }
 
             try {
