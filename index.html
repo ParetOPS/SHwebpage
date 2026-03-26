@@ -302,6 +302,26 @@
             box-shadow: 0 8px 22px rgba(0, 128, 255, 0.28);
         }
 
+        .store-feedback {
+            margin-top: 1rem;
+            padding: 1rem 1.1rem;
+            border: 1px solid rgba(0, 210, 255, 0.28);
+            border-radius: 18px;
+            background: rgba(8, 26, 52, 0.78);
+            backdrop-filter: blur(8px);
+            max-width: 560px;
+        }
+
+        .store-feedback p {
+            margin: 0;
+            color: #d8ecff;
+            line-height: 1.6;
+        }
+
+        .store-feedback .store-btn {
+            margin-top: 0.9rem;
+        }
+
         .radar-scene {
             display: grid;
             place-items: center;
@@ -1013,9 +1033,15 @@
                         </div>
                         <a href="mailto:contact@scan-horizon.com?subject=Acc%C3%A8s%20b%C3%AAta%20test%20ScanHorizon" class="beta-link">Accès bêta test</a>
                         <div class="store-buttons">
-                            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M16.365 1.43c0 1.14-.414 2.198-1.104 2.983-.789.9-2.074 1.595-3.19 1.51-.141-1.109.446-2.295 1.127-3.042.751-.833 2.057-1.43 3.167-1.451zM20.678 17.156c-.565 1.258-.836 1.818-1.563 2.924-1.014 1.544-2.445 3.468-4.22 3.483-1.58.014-1.987-1.03-4.132-1.017-2.146.013-2.594 1.036-4.174 1.022-1.775-.016-3.13-1.75-4.143-3.293-2.834-4.321-3.134-9.389-1.381-12.08 1.246-1.91 3.21-3.028 5.056-3.028 1.88 0 3.062 1.03 4.616 1.03 1.507 0 2.425-1.033 4.601-1.033 1.645 0 3.389.895 4.634 2.438-4.068 2.23-3.406 8.028.706 9.554z"/></svg></span>iOS</a>
-                            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 2.5v19l10.1-9.5L3 2.5zm11.8 11L18 10.7l3 1.7-3 1.7-3.2-0.6zm-1.5.8L3 21.5l11.7-6.8-1.4-0.4zm1.4-4.6L3 2.5l10.3 7.1 1.4-0.9z"/></svg></span>Android</a>
-                            <a href="mailto:contact@scan-horizon.com?subject=Contact%20ScanHorizon" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm0 2v.2l9 5.8 9-5.8V7l-9 5.8L3 7z"/></svg></span>Nous contacter</a>
+                            <button type="button" class="store-btn js-store-trigger" data-target="fr-ios-message"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M16.365 1.43c0 1.14-.414 2.198-1.104 2.983-.789.9-2.074 1.595-3.19 1.51-.141-1.109.446-2.295 1.127-3.042.751-.833 2.057-1.43 3.167-1.451zM20.678 17.156c-.565 1.258-.836 1.818-1.563 2.924-1.014 1.544-2.445 3.468-4.22 3.483-1.58.014-1.987-1.03-4.132-1.017-2.146.013-2.594 1.036-4.174 1.022-1.775-.016-3.13-1.75-4.143-3.293-2.834-4.321-3.134-9.389-1.381-12.08 1.246-1.91 3.21-3.028 5.056-3.028 1.88 0 3.062 1.03 4.616 1.03 1.507 0 2.425-1.033 4.601-1.033 1.645 0 3.389.895 4.634 2.438-4.068 2.23-3.406 8.028.706 9.554z"/></svg></span>iOS</button>
+                            <button type="button" class="store-btn js-store-trigger" data-target="fr-android-message"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 2.5v19l10.1-9.5L3 2.5zm11.8 11L18 10.7l3 1.7-3 1.7-3.2-0.6zm-1.5.8L3 21.5l11.7-6.8-1.4-0.4zm1.4-4.6L3 2.5l10.3 7.1 1.4-0.9z"/></svg></span>Android</button>
+                        </div>
+                        <div id="fr-ios-message" class="store-feedback hidden">
+                            <p>Version beta iOs dispo le 5 avril !</p>
+                        </div>
+                        <div id="fr-android-message" class="store-feedback hidden">
+                            <p>Version beta prête ! Donne nous ton email Google Play pour obtenir l'accès (France uniquement).</p>
+                            <a href="mailto:contact@scan-horizon.fr?subject=Acc%C3%A8s%20beta%20Android%20ScanHorizon" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm0 2v.2l9 5.8 9-5.8V7l-9 5.8L3 7z"/></svg></span>contact@scan-horizon.fr</a>
                         </div>
                     </div>
                     <div class="radar-scene" aria-hidden="true">
@@ -1071,9 +1097,15 @@
                         </div>
                         <a href="mailto:contact@scan-horizon.com?subject=ScanHorizon%20beta%20test%20access" class="beta-link">Beta test access</a>
                         <div class="store-buttons">
-                            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M16.365 1.43c0 1.14-.414 2.198-1.104 2.983-.789.9-2.074 1.595-3.19 1.51-.141-1.109.446-2.295 1.127-3.042.751-.833 2.057-1.43 3.167-1.451zM20.678 17.156c-.565 1.258-.836 1.818-1.563 2.924-1.014 1.544-2.445 3.468-4.22 3.483-1.58.014-1.987-1.03-4.132-1.017-2.146.013-2.594 1.036-4.174 1.022-1.775-.016-3.13-1.75-4.143-3.293-2.834-4.321-3.134-9.389-1.381-12.08 1.246-1.91 3.21-3.028 5.056-3.028 1.88 0 3.062 1.03 4.616 1.03 1.507 0 2.425-1.033 4.601-1.033 1.645 0 3.389.895 4.634 2.438-4.068 2.23-3.406 8.028.706 9.554z"/></svg></span>iOS</a>
-                            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 2.5v19l10.1-9.5L3 2.5zm11.8 11L18 10.7l3 1.7-3 1.7-3.2-0.6zm-1.5.8L3 21.5l11.7-6.8-1.4-0.4zm1.4-4.6L3 2.5l10.3 7.1 1.4-0.9z"/></svg></span>Android</a>
-                            <a href="mailto:contact@scan-horizon.com?subject=ScanHorizon%20contact" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm0 2v.2l9 5.8 9-5.8V7l-9 5.8L3 7z"/></svg></span>Contact us</a>
+                            <button type="button" class="store-btn js-store-trigger" data-target="en-ios-message"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M16.365 1.43c0 1.14-.414 2.198-1.104 2.983-.789.9-2.074 1.595-3.19 1.51-.141-1.109.446-2.295 1.127-3.042.751-.833 2.057-1.43 3.167-1.451zM20.678 17.156c-.565 1.258-.836 1.818-1.563 2.924-1.014 1.544-2.445 3.468-4.22 3.483-1.58.014-1.987-1.03-4.132-1.017-2.146.013-2.594 1.036-4.174 1.022-1.775-.016-3.13-1.75-4.143-3.293-2.834-4.321-3.134-9.389-1.381-12.08 1.246-1.91 3.21-3.028 5.056-3.028 1.88 0 3.062 1.03 4.616 1.03 1.507 0 2.425-1.033 4.601-1.033 1.645 0 3.389.895 4.634 2.438-4.068 2.23-3.406 8.028.706 9.554z"/></svg></span>iOS</button>
+                            <button type="button" class="store-btn js-store-trigger" data-target="en-android-message"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 2.5v19l10.1-9.5L3 2.5zm11.8 11L18 10.7l3 1.7-3 1.7-3.2-0.6zm-1.5.8L3 21.5l11.7-6.8-1.4-0.4zm1.4-4.6L3 2.5l10.3 7.1 1.4-0.9z"/></svg></span>Android</button>
+                        </div>
+                        <div id="en-ios-message" class="store-feedback hidden">
+                            <p>iOS beta version available on April 5!</p>
+                        </div>
+                        <div id="en-android-message" class="store-feedback hidden">
+                            <p>Beta version ready! Send us your Google Play email to get access (France only).</p>
+                            <a href="mailto:contact@scan-horizon.fr?subject=ScanHorizon%20Android%20beta%20access" class="store-btn"><span class="store-icon" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm0 2v.2l9 5.8 9-5.8V7l-9 5.8L3 7z"/></svg></span>contact@scan-horizon.fr</a>
                         </div>
                     </div>
                     <div class="radar-scene" aria-hidden="true">
@@ -1952,6 +1984,28 @@
             }
         }
 
+        function setupStoreMessages() {
+            const triggers = document.querySelectorAll('.js-store-trigger');
+
+            triggers.forEach((trigger) => {
+                trigger.addEventListener('click', () => {
+                    const heroCopy = trigger.closest('.hero-copy');
+                    const targetId = trigger.getAttribute('data-target');
+                    const target = document.getElementById(targetId);
+
+                    if (!heroCopy || !target) {
+                        return;
+                    }
+
+                    heroCopy.querySelectorAll('.store-feedback').forEach((panel) => {
+                        panel.classList.add('hidden');
+                    });
+
+                    target.classList.remove('hidden');
+                });
+            });
+        }
+
         // 5. INITIALISATION
         window.addEventListener('hashchange', handleRouting);
         
@@ -1965,6 +2019,9 @@
 
             // Stats live
             fetchLiveStats();
+
+            // Messages App Stores
+            setupStoreMessages();
         });
     </script>
 </body>
